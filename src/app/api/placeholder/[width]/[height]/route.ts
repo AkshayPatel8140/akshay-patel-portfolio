@@ -1,12 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-type Params = { width: string; height: string };
-type Context = { params: Params };
-
-export async function GET(
-  request: NextRequest,
-  context: Context
-) {
+// @ts-expect-error Next.js API Route context typing
+export async function GET(request: NextRequest, context: { params }) {
   const { width, height } = context.params;
 
   // Validate dimensions
