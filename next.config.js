@@ -8,6 +8,7 @@ const nextConfig = {
     optimizePackageImports: ['framer-motion', 'lucide-react'],
   },
 
+  output: 'export',
   basePath: isGithubPages ? '/akshay-patel-portfolio' : '',
   assetPrefix: isGithubPages ? '/akshay-patel-portfolio/' : '',
 
