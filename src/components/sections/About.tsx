@@ -6,6 +6,7 @@ import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import Image from 'next/image'
 import { Code, Database, Smartphone, Cloud, Zap, Users, Award, BookOpen } from 'lucide-react'
+import { Image_parser } from '@/utils/Image_parser'
 
 export default function About() {
   const ref = useRef(null)
@@ -198,7 +199,7 @@ export default function About() {
                       whileHover={{ scale: 1.1 }}
                     >
                       <Image
-                        src={process.env.NODE_ENV === "production" ? "/akshay-patel-portfolio/avatar.png" : "/avatar.png"}
+                        src={Image_parser("/avatar.png")}
                         alt="Akshay Patel - Professional Photo"
                         width={128}
                         height={128}
