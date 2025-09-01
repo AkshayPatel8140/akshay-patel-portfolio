@@ -88,7 +88,7 @@ export default function About() {
               </motion.h3>
               <div className="space-y-4 text-left">
                 {[
-                  `${process.env.NEXT_PUBLIC_BASE_PATH}`,
+                  `${process.env.NODE_ENV}`,
                   "I'm Akshay Patel, a full-stack software developer with over 5 years of experience in creating web and mobile applications. My journey in tech started with curiosity and has evolved into a passion for building solutions that make a difference.",
                   "I specialize in modern technologies like React, Node.js, React Native and cloud platforms, plus cutting-edge AI and Machine Learning. I've built AI agents, intelligent chatbots, and ML models that solve real-world problems. What drives me is the challenge of turning complex problems into elegant, user-friendly solutions that people love to use.",
                   "When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, or sharing knowledge with the developer community."
@@ -198,7 +198,7 @@ export default function About() {
                       whileHover={{ scale: 1.1 }}
                     >
                       <Image
-                        src="/avatar.png"
+                        src={process.env.NODE_ENV === "production" ? "/akshay-patel-portfolio/avatar.png" : "/avatar.png"}
                         alt="Akshay Patel - Professional Photo"
                         width={128}
                         height={128}
