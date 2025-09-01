@@ -2,14 +2,14 @@ import { NextRequest, NextResponse } from 'next/server'
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { width: string; height: string } }
+  context: { params: { width: string; height: string } }
 ) {
-  const { width, height } = params
-  
+  const { width, height } = context.params;
+
   // Validate dimensions
   const w = parseInt(width) || 600
   const h = parseInt(height) || 400
-  
+
   // Create a simple SVG placeholder
   const svg = `
     <svg width="${w}" height="${h}" xmlns="http://www.w3.org/2000/svg">
@@ -26,7 +26,7 @@ export async function GET(
       </text>
     </svg>
   `
-  
+
   return new NextResponse(svg, {
     headers: {
       'Content-Type': 'image/svg+xml',
