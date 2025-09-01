@@ -1,10 +1,14 @@
 /** @type {import('next').NextConfig} */
+
+const isGithubPages = process.env.GITHUB_PAGES === 'true';
 const nextConfig = {
   // Enable experimental features for better performance
   experimental: {
     optimizeCss: true,
     optimizePackageImports: ['framer-motion', 'lucide-react'],
   },
+  basePath: isGithubPages ? '/akshay-patel-portfolio' : '',
+  assetPrefix: isGithubPages ? '/akshay-patel-portfolio/' : '',
   
   // Image optimization settings
   images: {
