@@ -197,7 +197,7 @@ export default function About() {
                       whileHover={{ scale: 1.1 }}
                     >
                       <Image
-                        src="akshay-patel-portfolio/avatar.png"
+                        src="/avatar.png"
                         alt="Akshay Patel - Professional Photo"
                         width={128}
                         height={128}
