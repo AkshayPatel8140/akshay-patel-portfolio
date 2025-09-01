@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 
-const isGithubPages = process.env.NODE_ENV === 'production';
 const nextConfig = {
   // Enable experimental features for better performance
   experimental: {
@@ -8,12 +7,15 @@ const nextConfig = {
     optimizePackageImports: ['framer-motion', 'lucide-react'],
   },
 
-  // output: 'export',
-  basePath: isGithubPages ? '/akshay-patel-portfolio' : '',
-  assetPrefix: isGithubPages ? '/akshay-patel-portfolio/' : '',
+  // basePath and assetPrefix are automatically handled by GitHub Actions
+    // output: 'export',
+    // basePath: isGithubPages ? '/akshay-patel-portfolio' : '',
+    // assetPrefix: isGithubPages ? '/akshay-patel-portfolio/' : '',
+  // when using static_site_generator: next
 
   // Image optimization settings
   images: {
+    
     // Enable modern image formats
     formats: ['image/webp', 'image/avif'],
 
