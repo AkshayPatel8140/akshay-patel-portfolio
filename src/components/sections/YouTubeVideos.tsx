@@ -6,6 +6,7 @@ import { ExternalLink, Calendar, Clock, Play, Search, Filter, Youtube } from 'lu
 import Image from 'next/image'
 import { youtubeVideosData, categories, externalLinks } from '@/data/portfolio'
 import type { YouTubeVideo } from '@/types/portfolio'
+import { Image_parser } from '@/utils/Image_parser'
 
 // Use centralized YouTube videos data
 const youtubeVideos = youtubeVideosData
@@ -217,7 +218,7 @@ export default function YouTubeVideos() {
                   </div>
                   <div className="relative h-80 lg:h-96 rounded-xl overflow-hidden">
                     <Image
-                      src={video.thumbnail}
+                      src={Image_parser(video.thumbnail)}
                       alt={video.title}
                       fill
                       className="object-cover"
@@ -255,7 +256,7 @@ export default function YouTubeVideos() {
                 {/* Video Thumbnail */}
                 <div className="relative h-48 overflow-hidden">
                   <Image
-                    src={video.thumbnail}
+                    src={Image_parser(video.thumbnail)}
                     alt={video.title}
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-500"

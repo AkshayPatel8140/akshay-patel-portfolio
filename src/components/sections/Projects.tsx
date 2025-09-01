@@ -12,6 +12,7 @@ import {
 } from 'lucide-react'
 import { projectsData } from '@/data/portfolio'
 import type { Project } from '@/types/portfolio'
+import { Image_parser } from '@/utils/Image_parser'
 
 export default function Projects() {
   const ref = useRef(null)
@@ -40,7 +41,7 @@ export default function Projects() {
       firstThreeProjects.forEach(project => {
         const img = new window.Image()
         img.onload = () => handleImageLoad(project.id)
-        img.src = project.image
+        img.src = Image_parser(project.image)
       })
     }
 
@@ -50,7 +51,7 @@ export default function Projects() {
   }, [])
 
   // Calculate category counts
-  const categories =  [
+  const categories = [
     { name: 'All', icon: Code, count: 11 },
     { name: 'AI/ML', icon: Brain, count: 2 },
     { name: 'Frontend', icon: Code, count: 2 },
@@ -260,7 +261,7 @@ export default function Projects() {
                       }`}
                   >
                     <Image
-                      src={project.image}
+                      src={Image_parser(project.image)}
                       alt={project.title}
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -593,7 +594,7 @@ export default function Projects() {
                   {/* Project Image - Optimized */}
                   <div className="relative h-64 bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600 rounded-xl overflow-hidden">
                     <Image
-                      src={selectedProject.image}
+                      src={Image_parser(selectedProject.image)}
                       alt={selectedProject.title}
                       fill
                       sizes="(max-width: 1024px) 100vw, 50vw"
