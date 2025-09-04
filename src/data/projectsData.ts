@@ -13,7 +13,7 @@ export const projectsData = [
             "Real-time brand compliance verification",
             "Web interface with modern UI/UX"
         ],
-        liveUrl: "",
+        liveUrl: "https://akshaypatel8140.github.io/akshay-patel-portfolio/",
         githubUrl: "https://github.com/AkshayPatel8140/brand-craft-studio",
         androidUrl: "",
         iosUrl: "",
