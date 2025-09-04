@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ExternalLink, Calendar, Clock, ArrowRight, BookOpen, Tag, Search, Filter } from 'lucide-react'
 import Image from 'next/image'
-import { blogPostsData, categories, externalLinks } from '@/data/portfolio'
+import { blogPostsData, categories, externalLinks } from '@/data'
 import type { BlogPost } from '@/types/portfolio'
 
 // Use centralized blog data

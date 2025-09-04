@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { Menu, X, Sun, Moon } from 'lucide-react'
 import { usePathname } from 'next/navigation'
-import { navigationConfig } from '@/data/portfolio'
+import { navigationConfig } from '@/data'
 import type { NavigationConfig } from '@/types/portfolio'
 
 export default function Navigation() {

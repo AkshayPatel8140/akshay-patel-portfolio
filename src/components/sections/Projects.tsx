@@ -10,7 +10,7 @@ import {
   Code, Brain, Smartphone, Cloud, Globe, Zap,
   ChevronLeft, ChevronRight
 } from 'lucide-react'
-import { projectsData } from '@/data/portfolio'
+import { projectsData } from '@/data'
 import type { Project } from '@/types/portfolio'
 import { Image_parser } from '@/utils/Image_parser'
 
@@ -52,11 +52,11 @@ export default function Projects() {
 
   // Calculate category counts
   const categories = [
-    { name: 'All', icon: Code, count: 11 },
-    { name: 'AI/ML', icon: Brain, count: 2 },
-    { name: 'Frontend', icon: Code, count: 2 },
+    { name: 'All', icon: Code, count: projectsData.length },
+    { name: 'AI/ML', icon: Brain, count: 3 },
+    { name: 'Frontend', icon: Code, count: 1 },
     { name: 'Backend', icon: Code, count: 1 },
-    { name: 'Mobile', icon: Smartphone, count: 5 },
+    { name: 'Mobile', icon: Smartphone, count: 6 },
     { name: 'Cloud', icon: Cloud, count: 0 },
     { name: 'Development Tools', icon: Code, count: 1 }
   ]
@@ -163,7 +163,7 @@ export default function Projects() {
           transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
           className="flex flex-wrap justify-center gap-4 mb-12"
         >
-          {categories.map((category, index) => {
+          {categories.filter(category => category.count > 0).map((category, index) => {
             const Icon = category.icon
             return (
               <motion.button

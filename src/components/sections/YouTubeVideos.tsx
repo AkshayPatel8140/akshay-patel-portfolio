@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ExternalLink, Calendar, Clock, Play, Search, Filter, Youtube } from 'lucide-react'
 import Image from 'next/image'
-import { youtubeVideosData, categories, externalLinks } from '@/data/portfolio'
+import { youtubeVideosData, categories, externalLinks } from '@/data'
 import type { YouTubeVideo } from '@/types/portfolio'
 import { Image_parser } from '@/utils/Image_parser'
 
@@ -369,7 +369,7 @@ export default function YouTubeVideos() {
               Subscribe to my YouTube channel for regular updates on technology, AI, and software development.
             </p>
             <a
-              href="https://www.youtube.com/@yourchannel"
+              href="https://www.youtube.com/@AkshayPatel-81"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-red-500 to-pink-600 text-white rounded-xl font-medium hover:from-red-600 hover:to-pink-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
