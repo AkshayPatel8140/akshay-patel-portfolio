@@ -106,7 +106,7 @@ export default function Contact() {
 
     try {
       // Send form data to Make.com webhook
-      const response = await fetch('https://hook.us2.make.com/c1o6alx46ryetius65f2yr40a2xykn85', {
+      const response = await fetch('https://hook.us2.make.com/bjfxoha5wrpmjwtc5ehp78lpu230gkik', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
