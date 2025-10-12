@@ -44,7 +44,7 @@ export default function Experience() {
       title: "Software Engineer Intern",
       company: "MSL Techsolution",
       location: "Tallahassee, Florida, United States (Remote)",
-      duration: "Jul 2025 – Current",
+      duration: "Jul 2025 - Current",
       description: "Designing and deploying end-to-end AI agent solutions for enterprise clients, focusing on lead generation, customer support, and marketing automation. Engineering scalable, multi-agent systems and custom generative AI pipelines using LangChain, Transformers, and various LLM APIs.",
       technologies: [
         "Python", "LangChain", "OpenAI API", "Hugging Face Transformers", "DALL-E 3", "Multi-Agent Systems", "Prompt Engineering", "Docker", "Kubernetes", "CI/CD", "Google Cloud", "No-Code AI Tools"
@@ -58,14 +58,14 @@ export default function Experience() {
       ],
       type: "work",
       icon: Code,
-      link: ""
+      link: "https://www.msl-techsolutions.com"
     },
     {
       id: 'ex_4',
       title: "Teaching Assistant",
       company: "San Francisco Bay University",
       location: "Fremont, California, United States",
-      duration: "Feb 2024 – Jul 2024",
+      duration: "Feb 2024 - Jul 2024",
       description: "Mentored graduate students in advanced Generative AI topics, focusing on first-principles understanding of LLM architectures, embeddings, and agent-based systems. Facilitated hands-on learning through labs, projects, and tool-based experimentation.",
       technologies: [
         "Database Systems", "LangChain", "OpenAI API", "Transformers", "HuggingFace", "Advanced Web Development", "Prompt Engineering", "Python", "Flask", "LLM Agents"
