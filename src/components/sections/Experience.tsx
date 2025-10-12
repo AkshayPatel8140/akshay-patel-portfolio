@@ -20,7 +20,7 @@ import {
 } from 'lucide-react'
 
 interface ExperienceItem {
-  id: number
+  id: number | string
   title: string
   company: string
   location: string
@@ -40,7 +40,28 @@ export default function Experience() {
 
   const experiences: ExperienceItem[] = [
     {
-      id: 1,
+      id: 'ex_5',
+      title: "Software Engineer Intern",
+      company: "MSL Techsolution",
+      location: "Tallahassee, Florida, United States (Remote)",
+      duration: "Jul 2025 – Current",
+      description: "Designing and deploying end-to-end AI agent solutions for enterprise clients, focusing on lead generation, customer support, and marketing automation. Engineering scalable, multi-agent systems and custom generative AI pipelines using LangChain, Transformers, and various LLM APIs.",
+      technologies: [
+        "Python", "LangChain", "OpenAI API", "Hugging Face Transformers", "DALL-E 3", "Multi-Agent Systems", "Prompt Engineering", "Docker", "Kubernetes", "CI/CD", "Google Cloud", "No-Code AI Tools"
+      ],
+      achievements: [
+        "Designed and deployed LangChain-powered voice and chat agents, reducing manual client outreach by 40%",
+        "Improved client call conversion rates by 25% by developing a lead generation voice agent trained with advanced prompt engineering and Hugging Face Transformers",
+        "Engineered a custom AI image generation pipeline using the OpenAI API to produce brand-specific creative assets, accelerating client marketing campaigns",
+        "Built and managed Kubernetes-orchestrated deployments on Google Cloud, ensuring scalability and automated CI/CD pipelines for AI microservices",
+        "Reduced prototyping experimentation cycle time from days to hours by researching and implementing no-code AI agent flows"
+      ],
+      type: "work",
+      icon: Code,
+      link: ""
+    },
+    {
+      id: 'ex_4',
       title: "Teaching Assistant",
       company: "San Francisco Bay University",
       location: "Fremont, California, United States",
@@ -61,7 +82,7 @@ export default function Experience() {
       link: "https://www.sfbu.edu/"
     },
     {
-      id: 2,
+      id: 'ex_3',
       title: "Software Developer",
       company: "e-infochips Private Limited",
       location: "Ahmedabad, Gujarat, India (Remote)",
@@ -83,7 +104,7 @@ export default function Experience() {
       link: "https://www.einfochips.com/"
     },
     {
-      id: 3,
+      id: 'ex_2',
       title: "Software Developer",
       company: "Moon Technolabs Pvt. Ltd.",
       location: "Ahmedabad, Gujarat, India",
@@ -113,7 +134,7 @@ export default function Experience() {
       link: "https://www.moontechnolabs.com/"
     },
     {
-      id: 4,
+      id: 'ex_1',
       title: "Python Developer Intern",
       company: "Virtual Heights Pvt. Ltd.",
       location: "Ahmedabad, Gujarat, India",
@@ -133,42 +154,8 @@ export default function Experience() {
       icon: Code,
       link: "https://virtualheights.com/"
     },
-    // {
-    //   id: 2,
-    //   title: 'Full Stack Developer',
-    //   company: 'Freelance & Personal Projects',
-    //   location: 'United States (Remote)',
-    //   duration: '2020 - Present',
-    //   description: 'Building innovative web and mobile applications using modern technologies. Specializing in AI/ML integration and scalable architecture. Serving clients across the United States and globally.',
-    //   technologies: ['Next.js', 'React', 'Node.js', 'Python', 'TensorFlow', 'MongoDB'],
-    //   achievements: [
-    //     'Built 10+ full-stack applications from concept to deployment',
-    //     'Integrated AI/ML models into production applications',
-    //     'Achieved 95%+ client satisfaction rate',
-    //     'Developed reusable component libraries'
-    //   ],
-    //   type: 'work',
-    //   icon: Code
-    // },
-    // {
-    //   id: 3,
-    //   title: 'AI/ML Research Assistant',
-    //   company: 'University Projects',
-    //   location: 'Ahmedabad, India',
-    //   duration: '2020 - 2021',
-    //   description: 'Conducted research in computer vision, natural language processing, and machine learning applications.',
-    //   technologies: ['Python', 'TensorFlow', 'OpenCV', 'NLP', 'Computer Vision'],
-    //   achievements: [
-    //     'Published research on plant disease detection using CNN',
-    //     'Developed emotion recognition system with 92% accuracy',
-    //     'Created real-time object detection applications',
-    //     'Presented findings at university tech symposium'
-    //   ],
-    //   type: 'work',
-    //   icon: Brain
-    // },
     {
-      id: 5,
+      id: "edu_2",
       title: "Master of Science in Computer Science",
       company: "San Francisco Bay University",
       location: "Fremont, California, United States",
@@ -185,7 +172,7 @@ export default function Experience() {
       icon: GraduationCap
     },
     {
-      id: 6,
+      id: "edu_1",
       title: 'Bachelor of Science in Information Technology',
       company: 'Gandhinagar Institute of Technology',
       location: 'Gujarat, India',
@@ -204,7 +191,7 @@ export default function Experience() {
       icon: GraduationCap
     },
     {
-      id: 7,
+      id: 'cert_11',
       title: "Introduction to Software Development",
       company: "Amazon",
       location: "Online",
@@ -221,7 +208,7 @@ export default function Experience() {
       link: 'https://www.coursera.org/account/accomplishments/verify/BR8B8PFT7UTS'
     },
     {
-      id: 8,
+      id: 'cert_10',
       title: "Oracle Cloud Infrastructure 2025 Certificate",
       company: "Oracle",
       location: "Online",
@@ -237,7 +224,7 @@ export default function Experience() {
       link: 'https://catalog-education.oracle.com/ords/certview/sharebadge?id=8276D4E588047D28F9902657A619282210BDF60FAA68D964BF80EA30168658C9'
     },
     {
-      id: 9,
+      id: 'cert_9',
       title: "Programming in Python",
       company: "Meta",
       location: "Online",
@@ -254,7 +241,7 @@ export default function Experience() {
       link: "https://www.coursera.org/account/accomplishments/verify/A8J6CGI3NBXE"
     },
     {
-      id: 10,
+      id: 'cert_8',
       title: "Version Control",
       company: "Meta",
       location: "Online",
@@ -270,7 +257,7 @@ export default function Experience() {
       link: "https://www.coursera.org/account/accomplishments/verify/8L8EZZWETTM9"
     },
     {
-      id: 11,
+      id: 'cert_7',
       title: "Back-End Development",
       company: "Meta",
       location: "Online",
@@ -287,7 +274,7 @@ export default function Experience() {
       link: "https://coursera.org/share/381b0de296eceae7999887e610603e76"
     },
     {
-      id: 12,
+      id: 'cert_6',
       title: "Community Health Index - Data Analysis Project",
       company: "Omdena",
       location: "San Jose, CA",
@@ -303,7 +290,7 @@ export default function Experience() {
       link: "https://confirm.omdena.com/LCfz0bm"
     },
     {
-      id: 13,
+      id: 'cert_5',
       title: "IEEE Xtreme Programming Competition 18.0",
       company: "IEEE",
       location: "Online",
@@ -319,7 +306,7 @@ export default function Experience() {
       link: "https://media.licdn.com/dms/image/v2/D562DAQFKMEXK7d5Xmw/profile-treasury-document-cover-images_480/B56ZWHfyndGoAw-/0/1741735014997?e=1757170800&v=beta&t=EvnTcGi8vDyczEqpDob34rGGZuhQe8uf7G76eei1_QQ"
     },
     {
-      id: 14,
+      id: 'cert_4',
       title: "Neo4j Certified Professional",
       company: "Neo4j",
       location: "Online",
@@ -335,7 +322,7 @@ export default function Experience() {
       link: "https://graphacademy.neo4j.com/c/0e529edd-e890-4c01-b531-f8c3f318856c/"
     },
     {
-      id: 15,
+      id: 'cert_3',
       title: "Oracle Cloud Infrastructure 2024 Generative AI Professional",
       company: "Oracle",
       location: "Online",
@@ -351,7 +338,7 @@ export default function Experience() {
       link: "https://catalog-education.oracle.com/ords/certview/sharebadge?id=E431E2832AF4CF4F5AF4CB84EF510BFBC9D794AEABD4B78D69E3953C4368A30A"
     },
     {
-      id: 16,
+      id: 'cert_2',
       title: "Introduction to Data Science",
       company: "Cisco",
       location: "Online",
@@ -367,7 +354,7 @@ export default function Experience() {
       link: "https://www.credly.com/badges/38c86bc9-a42c-4f8e-bd56-9c61b4b571a2/linked_in_profile"
     },
     {
-      id: 17,
+      id: 'cert_1',
       title: "Best Efficient Model",
       company: "Entrepreneurship Cell",
       location: "India",
