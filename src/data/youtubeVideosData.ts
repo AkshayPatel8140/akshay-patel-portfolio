@@ -2,26 +2,37 @@
 export const youtubeVideosData = [
     {
         "id": 1,
-        "title": "AI Just Killed Brand Image Design Jobs (But Created Something Better!)",
-        "description": "AI is changing the game for brand design. While some jobs may be automated, new opportunities are emerging for designers who can leverage AI tools to create innovative and effective brand identities.",
-        "youtubeUrl": "https://www.youtube.com/watch?v=kuIM3wNUL1c",
-        "thumbnail": "/images/projects/video1.png",
-        "publishedDate": "2025-08-23",
-        "duration": "2:28",
-        "category": "AI/ML",
-        "tags": ["AI", "Brand Design", "Future of Work", "Automation", "Design"],
-        "featured": true
-    },
-    {
-        "id": 2,
         "title": "No-Code Magic: Google Sheets + Tally + Make + Lovable + n8n in Action!",
         "description": "Learn how to build powerful automations without writing a single line of code. This video will show you how to connect Google Sheets, Tally, Make, Lovable, and n8n to create a seamless workflow.",
         "youtubeUrl": "https://www.youtube.com/watch?v=s7a6iqKwk44",
-        "thumbnail": "/images/projects/Video2.png",
+        "thumbnail": "/images/projects/Video1.png",
         "publishedDate": "2025-08-04",
         "duration": "5:57",
         "category": "Technology",
         "tags": ["No-Code", "Automation", "Google Sheets", "Tally", "Make", "Lovable", "n8n"]
+    },
+    {
+        "id": 2,
+        "title": "AI Just Killed Brand Image Design Jobs (But Created Something Better!)",
+        "description": "AI is changing the game for brand design. While some jobs may be automated, new opportunities are emerging for designers who can leverage AI tools to create innovative and effective brand identities.",
+        "youtubeUrl": "https://www.youtube.com/watch?v=kuIM3wNUL1c",
+        "thumbnail": "/images/projects/video2.png",
+        "publishedDate": "2025-08-23",
+        "duration": "2:28",
+        "category": "AI/ML",
+        "tags": ["AI", "Brand Design", "Future of Work", "Automation", "Design"],
+    },
+    {
+        "id": 3,
+        "title": "How to Build an AI Agent on Relevance AI Tutorial (GovGuide)",
+        "description": "An AI-powered agent built with Relevance AI that answers complex government-related questions. It intelligently searches official websites, scrapes content, and synthesizes the info into one clear answer.",
+        "youtubeUrl": "https://www.youtube.com/watch?v=b3ghaMYhlpA",
+        "thumbnail": "/images/projects/Video_3.jpeg",
+        "publishedDate": "2025-11-07",
+        "duration": "7:29",
+        "category": "AI/ML",
+        "tags": ["AI", "AI Agent", "Relevance AI", "Tutorial", "Web Scraping", "Automation", "No-Code"],
+        "featured": true
     }
     // {
     //   id: 1,

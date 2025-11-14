@@ -9,7 +9,7 @@ import type { YouTubeVideo } from '@/types/portfolio'
 import { Image_parser } from '@/utils/Image_parser'
 
 // Use centralized YouTube videos data
-const youtubeVideos = youtubeVideosData
+const youtubeVideos = youtubeVideosData.reverse()
 
 // Categories for filtering
 const youtubeCategories = categories.youtube
@@ -226,7 +226,14 @@ export default function YouTubeVideos() {
                     />
                     <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
                       <div className="w-20 h-20 bg-red-500 rounded-full flex items-center justify-center shadow-lg">
-                        <Play className="w-8 h-8 text-white ml-1" />
+                        {/* <Play className="w-8 h-8 text-white ml-1" /> */}
+                        <a
+                          href={video.youtubeUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Play className="w-8 h-8 text-white ml-1" />
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -265,7 +272,14 @@ export default function YouTubeVideos() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <Play className="w-6 h-6 text-white ml-1" />
+                      
+                      <a
+                        href={video.youtubeUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Play className="w-6 h-6 text-white ml-1" />
+                      </a>
                     </div>
                   </div>
                   <div className="absolute top-3 right-3 bg-black/80 text-white px-2 py-1 rounded text-sm font-medium">

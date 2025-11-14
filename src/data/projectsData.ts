@@ -47,6 +47,29 @@ export const projectsData = [
         status: 'Completed' as const
     },
     {
+        id: 13,
+        title: "GovGuide Florida: AI Agent",
+        description: "Finding clear answers to simple government questions is often a frustrating experience, with information scattered across dozens of pages. GovGuide Florida is an AI agent built on Relevance AI to solve this problem. It takes a user's question (e.g., 'how to renew my driver's license') and automatically executes a multi-step workflow: 1. Formulates a targeted search query. 2. Searches the official government website. 3. Scrapes the content from all relevant pages. 4. Synthesizes all the information into a single, clear, step-by-step answer. This agent turns a complex research task into a simple, one-click process.",
+        shortDescription: "AI agent that provides clear, synthesized answers from government websites.",
+        image: "/images/projects/Video_3.jpeg",
+        category: "AI/ML",
+        technologies: ["Relevance AI", "AI Agents", "LLMs", "Python", "Google Search API", "Web Scraping", "JSON"],
+        features: [
+            "Multi-step AI agent workflow (Search, Scrape, Synthesize)",
+            "Synthesizes information from multiple web pages into one answer",
+            "Targeted search restricted to a specific government domain",
+            "Public-facing app interface for user queries"
+        ],
+        liveUrl: "https://app.relevanceai.com/form/bcbe5a/e6786e83-3f8f-41e0-a52b-b83d8f3c9269?version=latest&ctaText=Get+Details",
+        githubUrl: "",
+        androidUrl: "",
+        iosUrl: "",
+        ipadUrl: "",
+        windowsUrl: "",
+        macUrl: "",
+        status: "Completed" as const
+    },
+    {
         id: 2,
         title: 'SEEKRZ',
         description: "The Seekers App is a versatile platform for buying, selling, and trading items such as clothing, accessories, and footwear. My role began with establishing the project's foundation and initial functionality. I led the deployment on both the App Store and Google Play Store, ensuring wide accessibility. To enhance performance, I implemented memory caching and asynchronous data loading, which increased user engagement by 20%. Additionally, I introduced a photo capture feature with local storage and S3 bucket integration, improving app speed by 30%. I also configured Google Analytics to track user behavior and performance metrics, resulting in a 15% increase in the average order rate. The app's standout feature is its in-app chat, which facilitates communication and negotiations between users, providing a seamless and interactive user experience.",
