@@ -49,19 +49,6 @@ const nextConfig = {
     removeConsole: process.env.NODE_ENV === 'production',
   },
 
-  // Webpack optimizations
-  webpack: (config, { dev, isServer }) => {
-    // Optimize bundle size
-    if (!dev && !isServer) {
-      config.optimization.splitChunks.chunks = 'all'
-    }
-
-    // Enable tree shaking
-    config.optimization.usedExports = true
-
-    return config
-  },
-
   // Headers for performance
   async headers() {
     return [
@@ -93,9 +80,6 @@ const nextConfig = {
       },
     ]
   },
-
-  // Enable SWC minification
-  swcMinify: true,
 }
 
 module.exports = nextConfig
