@@ -32,7 +32,29 @@ export const youtubeVideosData = [
         "duration": "7:29",
         "category": "AI/ML",
         "tags": ["AI", "AI Agent", "Relevance AI", "Tutorial", "Web Scraping", "Automation", "No-Code"],
+    },
+    {
+        "id": 4,
+        "title": "Social Media Posts (LinkedIn, Facebook, Instagram, Threads) from YouTube Transcript",
+        "description": "Learn how to build an end-to-end n8n workflow that transforms YouTube transcripts into tailored posts for four platforms. Includes AI image generation and a 'Human-in-the-loop' email approval system.",
+        "youtubeUrl": "https://www.youtube.com/watch?v=bSQHXePTabw",
+        "thumbnail": "/images/projects/Video4.png",
+        "publishedDate": "2025-12-14",
+        "duration": "8:10",
+        "category": "AI/ML",
+        "tags": ["n8n", "Automation", "Social Media", "AI Agent", "Content Creation", "Gemini AI"],
         "featured": true
+    },
+    {
+        "id": 5,
+        "title": "How to Create a Pinterest Developer Account & Get API Keys (Setup Guide)",
+        "description": "A complete technical guide on setting up your Pinterest Developer account. Learn how to get your App ID, Secret Key, and Access Tokens to connect Pinterest with automation tools like n8n and Make.com.",
+        "youtubeUrl": "https://www.youtube.com/watch?v=GqulK9MzZk8",
+        "thumbnail": "/images/projects/Video5.png",
+        "publishedDate": "2025-12-28",
+        "duration": "5:53",
+        "category": "Technology",
+        "tags": ["Pinterest API", "Developer Setup", "Automation", "API Integration", "n8n", "Make.com"]
     }
     // {
     //   id: 1,
