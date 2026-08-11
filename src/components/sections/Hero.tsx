@@ -1,33 +1,17 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { motion } from 'framer-motion'
-import { ChevronDown, Download, Mail, Github, Linkedin, Twitter } from 'lucide-react'
-import Link from 'next/link'
+import { ChevronDown, Mail, Github, Linkedin, Twitter, GraduationCap, BookOpen } from 'lucide-react'
+import { personalInfo, heroQuickLinks } from '@/data/portfolio'
+
+const quickLinkIcons: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
+  'Google Scholar': GraduationCap,
+  'OSF Research': BookOpen,
+  'Get in Touch': Mail,
+}
 
 export default function Hero() {
-  const [currentTextIndex, setCurrentTextIndex] = useState(0)
-  const [isTyping, setIsTyping] = useState(true)
-
-  const roles = [
-    'Full-Stack Developer',
-    'UI/UX Designer',
-    'Problem Solver',
-    'Tech Enthusiast'
-  ]
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIsTyping(false)
-      setTimeout(() => {
-        setCurrentTextIndex((prev) => (prev + 1) % roles.length)
-        setIsTyping(true)
-      }, 500)
-    }, 3000)
-
-    return () => clearInterval(interval as NodeJS.Timeout)
-  }, [])
-
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
     if (element) {
@@ -35,11 +19,20 @@ export default function Hero() {
     }
   }
 
+  const handleQuickLink = (href: string | null, type: 'external' | 'hash', available: boolean) => {
+    if (!available || !href) return
+    if (type === 'hash') {
+      scrollToSection(href.replace('#', ''))
+      return
+    }
+    window.open(href, '_blank', 'noopener,noreferrer')
+  }
+
   const socialLinks = [
     { icon: Github, href: 'https://github.com/AkshayPatel8140', label: 'GitHub' },
     { icon: Linkedin, href: 'https://www.linkedin.com/in/akshay-patel-04a714116', label: 'LinkedIn' },
     { icon: Twitter, href: 'https://x.com/AGPatel97', label: 'Twitter' },
-    { icon: Mail, href: 'mailto:akshaygpatel1997@gmail.com', label: 'Email' }
+    { icon: Mail, href: 'mailto:akshaygpatel1997@gmail.com', label: 'Email' },
   ]
 
   return (
@@ -107,14 +100,14 @@ export default function Hero() {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 container-custom text-center px-4">
+      <div className="relative z-10 w-full max-w-5xl mx-auto text-center px-4">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
           className="max-w-4xl mx-auto"
         >
-          {/* Greeting with enhanced animation */}
+          {/* Greeting — Layout A: keep name */}
           <motion.h1
             initial={{ opacity: 0, y: 30, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -123,92 +116,106 @@ export default function Hero() {
           >
             Hi, I&apos;m{' '}
             <motion.span 
-              className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent"
+              className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
             >
-              Akshay Patel
+              {personalInfo.name}
             </motion.span>
           </motion.h1>
 
-          {/* Enhanced Animated Role Text */}
-          <motion.div
+          {/* Static headline subtitle (Layout A — replaces rotating roles) */}
+          <motion.p
             initial={{ opacity: 0, y: 30, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
-            className="h-16 sm:h-20 flex items-center justify-center mb-6"
+            className="text-xl sm:text-2xl lg:text-3xl font-semibold text-blue-600 dark:text-blue-400 max-w-3xl mx-auto mb-6 leading-snug"
           >
-            <span className="text-xl sm:text-2xl lg:text-3xl text-gray-700 dark:text-gray-300">
-              I&apos;m a{' '}
-              <motion.span 
-                key={currentTextIndex}
-                initial={{ opacity: 0, y: 20, scale: 0.8 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: -20, scale: 0.8 }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                className="font-semibold text-blue-600 dark:text-blue-400 inline-block"
-              >
-                {roles[currentTextIndex]}
-              </motion.span>
-              <motion.span 
-                animate={{ opacity: [1, 0, 1] }}
-                transition={{ duration: 1, repeat: Infinity }}
-                className="inline-block ml-1"
-              >
-                |
-              </motion.span>
-            </span>
-          </motion.div>
+            {personalInfo.headline}
+          </motion.p>
 
-          {/* Enhanced Description */}
+          {/* Bio */}
           <motion.p
             initial={{ opacity: 0, y: 30, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
             className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8 leading-relaxed"
           >
-            Passionate about creating innovative digital solutions and building 
-            amazing user experiences. I turn ideas into reality through code.
+            {personalInfo.about}
           </motion.p>
 
-          {/* Enhanced CTA Buttons */}
+          {/* Quick links: GitHub, Google Scholar, OSF, Get in Touch */}
           <motion.div
             initial={{ opacity: 0, y: 30, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 1, delay: 1.0, ease: "easeOut" }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
+            className="flex flex-wrap gap-3 justify-center mb-12"
           >
-            <button
-              onClick={() => scrollToSection('projects')}
-              className="btn-primary group"
-            >
-              View My Work
-              <motion.div
-                className="inline-block ml-2"
-                animate={{ x: [0, 5, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-              >
-                →
-              </motion.div>
-            </button>
-            
-            <button
-              onClick={() => scrollToSection('contact')}
-              className="btn-outline group"
-            >
-              Get In Touch
-              <motion.div
-                className="inline-block ml-2"
-                animate={{ x: [0, 5, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity, delay: 0.5 }}
-              >
-                →
-              </motion.div>
-            </button>
+            {heroQuickLinks.map((link, index) => {
+              const Icon = quickLinkIcons[link.name] ?? Github
+              const isPrimary = link.name === 'Get in Touch'
+              const baseClasses =
+                'inline-flex items-center gap-2 px-5 py-3 rounded-xl font-medium transition-all duration-300 shadow-md'
+
+              if (!link.available) {
+                return (
+                  <span
+                    key={link.name}
+                    title="Coming soon — OSF profile not published yet"
+                    className={`${baseClasses} cursor-not-allowed bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-500 border border-gray-200 dark:border-gray-700`}
+                  >
+                    <Icon size={18} />
+                    {link.name}
+                    <span className="text-xs font-normal opacity-80">(soon)</span>
+                  </span>
+                )
+              }
+
+              if (link.type === 'hash') {
+                return (
+                  <motion.button
+                    key={link.name}
+                    type="button"
+                    onClick={() => handleQuickLink(link.href, link.type, link.available)}
+                    whileHover={{ scale: 1.03, y: -1 }}
+                    whileTap={{ scale: 0.98 }}
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 1.05 + index * 0.08 }}
+                    className={`${baseClasses} ${
+                      isPrimary
+                        ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-lg'
+                        : 'bg-white/90 dark:bg-gray-800/90 text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400'
+                    }`}
+                  >
+                    <Icon size={18} />
+                    {link.name}
+                  </motion.button>
+                )
+              }
+
+              return (
+                <motion.a
+                  key={link.name}
+                  href={link.href ?? undefined}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.03, y: -1 }}
+                  whileTap={{ scale: 0.98 }}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1.05 + index * 0.08 }}
+                  className={`${baseClasses} bg-white/90 dark:bg-gray-800/90 text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400`}
+                >
+                  <Icon size={18} />
+                  {link.name}
+                </motion.a>
+              )
+            })}
           </motion.div>
 
-          {/* Enhanced Social Links */}
+          {/* Secondary social icons */}
           <motion.div
             initial={{ opacity: 0, y: 30, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -243,7 +250,7 @@ export default function Hero() {
             })}
           </motion.div>
 
-          {/* Enhanced Stats */}
+          {/* Stats */}
           <motion.div
             initial={{ opacity: 0, y: 30, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -251,9 +258,9 @@ export default function Hero() {
             className="grid grid-cols-3 gap-8 max-w-md mx-auto"
           >
             {[
-              { number: '5+', label: 'Years Experience' },
-              { number: '30+', label: 'Projects Completed' },
-              { number: '10+', label: 'Technologies' }
+              { number: '5+', label: 'Years Building Systems' },
+              { number: '4+', label: 'AI Agent Products' },
+              { number: '3', label: 'Featured AI Systems' }
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -290,7 +297,7 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Enhanced Scroll Indicator */}
+      {/* Scroll Indicator */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

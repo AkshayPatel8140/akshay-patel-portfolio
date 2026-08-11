@@ -40,11 +40,43 @@ export default function Experience() {
 
   const experiences: ExperienceItem[] = [
     {
+      id: 'ex_6',
+      title: 'IT Software & System Engineer',
+      company: 'Allied Digital Services',
+      location: 'United States',
+      duration: 'Jan 2026 - Present',
+      description:
+        'Building applied AI automation inside an enterprise services environment: custom AI agents, voice/calling agents, and chat agents that handle operational workflows, plus AI integration bridges that connect disparate internal and customer software systems. Focused on deterministic tool use, multi-system orchestration, and reducing manual handoffs across support and business processes.',
+      technologies: [
+        'Python',
+        'LLM APIs (OpenAI / Claude)',
+        'LangChain / LangGraph',
+        'AI Voice & Calling Agents',
+        'Chat Agents',
+        'Multi-Agent Orchestration',
+        'API Integration Bridges',
+        'Webhook / Event Workflows',
+        'Prompt Engineering',
+        'ServiceNow / Enterprise Systems APIs'
+      ],
+      achievements: [
+        'Designed and deployed customized AI agents for internal and client-facing operational workflows beyond traditional desk-side support',
+        'Built AI calling (voice) agents for outbound/inbound process automation and structured call handling',
+        'Implemented chat agents that resolve routine requests and route complex cases with tool-backed responses',
+        'Created AI bridges that connect heterogeneous software systems (tickets, CRM/ops tools, and internal services) through APIs and orchestrated agent tools',
+        'Reduced manual cross-system handoffs by automating data lookup, status updates, and multi-step task flows with guardrailed agent actions',
+        'Iterated prompt, tool, and evaluation loops to improve reliability of agent outputs in live business workflows'
+      ],
+      type: 'work',
+      icon: Brain,
+      link: 'https://www.allieddigital.net/'
+    },
+    {
       id: 'ex_5',
       title: "Software Engineer Intern",
       company: "MSL Techsolution",
       location: "Tallahassee, Florida, United States (Remote)",
-      duration: "Jul 2025 - Current",
+      duration: "Jul 2025 - Dec 2025",
       description: "Designing and deploying end-to-end AI agent solutions for enterprise clients, focusing on lead generation, customer support, and marketing automation. Engineering scalable, multi-agent systems and custom generative AI pipelines using LangChain, Transformers, and various LLM APIs.",
       technologies: [
         "Python", "LangChain", "OpenAI API", "Hugging Face Transformers", "DALL-E 3", "Multi-Agent Systems", "Prompt Engineering", "Docker", "Kubernetes", "CI/CD", "Google Cloud", "No-Code AI Tools"
@@ -57,7 +89,7 @@ export default function Experience() {
         "Reduced prototyping experimentation cycle time from days to hours by researching and implementing no-code AI agent flows"
       ],
       type: "work",
-      icon: Code,
+      icon: Brain,
       link: "https://www.msl-techsolutions.com"
     },
     {
@@ -423,8 +455,8 @@ export default function Experience() {
             transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
             className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed"
           >
-            My professional journey in software development, from academic foundations to real-world applications.
-            Each experience has shaped my expertise in building innovative solutions.
+            Professional path across applied AI systems, generative AI teaching, and production engineering—
+            from multi-agent deployments to research-minded evaluation practice.
           </motion.p>
         </motion.div>
 
@@ -720,7 +752,7 @@ export default function Experience() {
             transition={{ duration: 0.8, delay: 4.2, ease: "easeOut" }}
             className="text-lg sm:text-xl mb-8 text-gray-600 dark:text-gray-400"
           >
-            Ready to bring your ideas to life?
+            Open to research collaboration, AI systems roles, and fellowship conversations.
           </motion.p>
           <motion.button
             initial={{ opacity: 0, y: 20, scale: 0.9 }}
@@ -735,7 +767,7 @@ export default function Experience() {
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl font-semibold transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/25"
           >
-            Let&apos;s Work Together
+            Let&apos;s Connect
           </motion.button>
         </motion.div>
       </div>

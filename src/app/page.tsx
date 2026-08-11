@@ -1,5 +1,6 @@
 import Navigation from '@/components/layout/Navigation'
 import Hero from '@/components/sections/Hero'
+import Publications from '@/components/sections/Publications'
 import About from '@/components/sections/About'
 import Skills from '@/components/sections/Skills'
 import Projects from '@/components/sections/Projects'
@@ -16,6 +17,11 @@ export default function Home() {
         {/* Hero Section - Main landing area */}
         <section aria-label="Introduction and Hero">
           <Hero />
+        </section>
+
+        {/* Research & Publications - Academic / fellowship touchpoint */}
+        <section aria-label="Research and Publications">
+          <Publications />
         </section>
 
         {/* About Section - Personal information and skills */}
@@ -48,10 +54,10 @@ export default function Home() {
       
       {/* Additional SEO elements */}
       <div className="sr-only">
-        <h1>Akshay Patel - Full-Stack Developer & AI/ML Expert Portfolio</h1>
-        <p>Professional software developer with 5+ years of experience specializing in AI/ML, React, Next.js, and full-stack development. Based in the United States, delivering innovative solutions for clients worldwide.</p>
-        <p>Expertise includes: React, Next.js, TypeScript, Node.js, Python, Machine Learning, AI Agents, Computer Vision, Natural Language Processing, Mobile Development, Cloud Computing.</p>
-        <p>Available for remote work and freelance projects. Contact for collaboration opportunities.</p>
+        <h1>Akshay Patel - Founder & Applied AI Engineer</h1>
+        <p>Founder and Applied AI Engineer building deterministic AI automation systems, multi-agent orchestration, and LLM guardrails for production workflows.</p>
+        <p>Expertise includes: Multi-Agent Systems, LangGraph, AutoGen, RAG Pipelines, Evaluation Benchmarks, FastAPI, Docker, PostgreSQL, Applied ML Systems Research.</p>
+        <p>Available for research collaboration, AI systems work, and fellowship inquiries.</p>
       </div>
     </>
   )

@@ -1,100 +1,44 @@
 'use client'
 
 import React, { useState } from 'react'
+import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import Image from 'next/image'
 import {
-  ExternalLink, Github, Eye, X, Filter,
-  Code, Brain, Smartphone, Cloud, Globe, Zap,
-  ChevronLeft, ChevronRight
+  ExternalLink, Github, Eye, X,
+  ArrowRight, Smartphone, Code
 } from 'lucide-react'
-import { projectsData } from '@/data'
+import { featuredProjects } from '@/data'
 import type { Project } from '@/types/portfolio'
 import { Image_parser } from '@/utils/Image_parser'
 
 export default function Projects() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
-  const [selectedCategory, setSelectedCategory] = useState('All')
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const [currentPage, setCurrentPage] = React.useState(1)
   const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set())
-  const projectsPerPage = 3
 
-  // Performance monitoring
-  const [imageLoadTimes, setImageLoadTimes] = useState<Record<number, number>>({})
+  const projects = featuredProjects
 
   const handleImageLoad = (projectId: number) => {
-    const loadTime = performance.now()
-    // For local images, load immediately without delay
     setLoadedImages(prev => new Set(prev).add(projectId))
-    setImageLoadTimes(prev => ({ ...prev, [projectId]: loadTime }))
   }
 
-  // Preload first 3 images since they're local
   React.useEffect(() => {
     const preloadImages = () => {
-      const firstThreeProjects = projects.slice(0, 3)
-      firstThreeProjects.forEach(project => {
+      projects.forEach(project => {
         const img = new window.Image()
         img.onload = () => handleImageLoad(project.id)
         img.src = Image_parser(project.image)
       })
     }
 
-    // Small delay to ensure component is mounted
     const timer = setTimeout(preloadImages, 100)
     return () => clearTimeout(timer)
-  }, [])
-
-  // Calculate category counts
-  const categories = [
-    { name: 'All', icon: Code, count: projectsData.length },
-    { name: 'AI/ML', icon: Brain, count: 3 },
-    { name: 'Frontend', icon: Code, count: 1 },
-    { name: 'Backend', icon: Code, count: 1 },
-    { name: 'Mobile', icon: Smartphone, count: 6 },
-    { name: 'Cloud', icon: Cloud, count: 0 },
-    { name: 'Development Tools', icon: Code, count: 1 }
-  ]
-
-  // Use centralized projects data
-  const projects = projectsData
-
-
-  // Calculate category counts
-  React.useEffect(() => {
-    const counts: { [key: string]: number } = projects.reduce((acc, project) => {
-      acc[project.category] = (acc[project.category] || 0) + 1
-      return acc
-    }, {} as { [key: string]: number })
-
-    categories.forEach(cat => {
-      if (cat.name === 'All') {
-        cat.count = projects.length
-      } else {
-        cat.count = counts[cat.name] || 0
-      }
-    })
-  }, [])
-
-  const filteredProjects = selectedCategory === 'All'
-    ? projects
-    : projects.filter(project => project.category === selectedCategory)
-
-  // Pagination logic
-  const totalPages = Math.ceil(filteredProjects.length / projectsPerPage)
-  const startIndex = (currentPage - 1) * projectsPerPage
-  const endIndex = startIndex + projectsPerPage
-  const currentProjects = filteredProjects.slice(startIndex, endIndex)
-
-  // Reset to first page when category changes
-  React.useEffect(() => {
-    setCurrentPage(1)
-  }, [selectedCategory])
+  }, [projects])
 
   const openProjectModal = (project: Project) => {
     setSelectedProject(project)
@@ -151,71 +95,15 @@ export default function Projects() {
             transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
             className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed"
           >
-            A showcase of my best work, from AI-powered applications to modern web solutions.
-            Each project represents a unique challenge and innovative solution.
+            High-impact applied AI systems: multi-agent orchestration, recommendation pipelines,
+            and domain-grounded agents. Full catalog lives on the projects page.
           </motion.p>
         </motion.div>
 
-        {/* Enhanced Filter Categories */}
+        {/* Featured trio only — no filters / pagination on home */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
-          className="flex flex-wrap justify-center gap-4 mb-12"
-        >
-          {categories.filter(category => category.count > 0).map((category, index) => {
-            const Icon = category.icon
-            return (
-              <motion.button
-                key={category.name}
-                initial={{ opacity: 0, scale: 0.7, y: 20, rotateY: -15 }}
-                animate={isInView ? { opacity: 1, scale: 1, y: 0, rotateY: 0 } : { opacity: 0, scale: 0.7, y: 20, rotateY: -15 }}
-                transition={{
-                  duration: 0.8,
-                  delay: 1.0 + index * 0.15,
-                  ease: "easeOut",
-                  type: "spring",
-                  stiffness: 100
-                }}
-                whileHover={{
-                  scale: 1.05,
-                  y: -3,
-                  rotateY: 5,
-                  transition: { duration: 0.2 }
-                }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setSelectedCategory(category.name)}
-                className={`flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-all duration-300 cursor-pointer ${selectedCategory === category.name
-                  ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg shadow-blue-500/25'
-                  : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 hover:shadow-md'
-                  }`}
-              >
-                <motion.div
-                  whileHover={{ rotate: 5, scale: 1.1 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <Icon className="w-5 h-5" />
-                </motion.div>
-                {category.name}
-                <motion.span
-                  className="ml-2 px-2 py-1 bg-white/20 dark:bg-black/20 rounded-full text-xs"
-                  initial={{ scale: 0, rotate: -90 }}
-                  animate={isInView ? { scale: 1, rotate: 0 } : { scale: 0, rotate: -90 }}
-                  transition={{ duration: 0.6, delay: 1.2 + index * 0.15, ease: "easeOut" }}
-                >
-                  {category.count}
-                </motion.span>
-              </motion.button>
-            )
-          })}
-        </motion.div>
-
-        {/* Enhanced Projects Grid */}
-        <motion.div
-          key={currentPage}
           initial={{ opacity: 0, y: 30, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: -30, scale: 0.95 }}
           transition={{
             duration: 0.8,
             ease: "easeOut",
@@ -225,9 +113,9 @@ export default function Projects() {
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           <AnimatePresence mode="wait">
-            {currentProjects.map((project, index) => (
+            {projects.map((project, index) => (
               <motion.div
-                key={`${project.id}-${currentPage}`}
+                key={project.id}
                 initial={{ opacity: 0, y: 40, scale: 0.9, rotateY: -10 }}
                 animate={isInView ? { opacity: 1, y: 0, scale: 1, rotateY: 0 } : { opacity: 0, y: 40, scale: 0.9, rotateY: -10 }}
                 exit={{ opacity: 0, y: -40, scale: 0.9, rotateY: 10 }}
@@ -402,93 +290,7 @@ export default function Projects() {
           </AnimatePresence>
         </motion.div>
 
-        {/* Enhanced Page Info */}
-        {totalPages > 1 && (
-          <motion.div
-            initial={{ opacity: 0, y: 20, scale: 0.95 }}
-            animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 20, scale: 0.95 }}
-            transition={{ duration: 0.6, delay: 2.8, ease: "easeOut" }}
-            className="text-center mt-8"
-          >
-            <motion.p
-              className="text-gray-600 dark:text-gray-400"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.4, delay: 0.3 }}
-            >
-              Showing {startIndex + 1}-{Math.min(endIndex, filteredProjects.length)} of {filteredProjects.length} projects
-            </motion.p>
-          </motion.div>
-        )}
-
-        {/* Enhanced Pagination Controls */}
-        {totalPages > 1 && (
-          <motion.div
-            initial={{ opacity: 0, y: 30, scale: 0.95 }}
-            animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 30, scale: 0.95 }}
-            transition={{ duration: 0.6, delay: 3.0, ease: "easeOut" }}
-            className="flex justify-center items-center gap-3 mt-12"
-          >
-            {/* Enhanced Previous Page Button */}
-            <motion.button
-              whileHover={{ scale: currentPage === 1 ? 1 : 1.05, y: -2 }}
-              whileTap={{ scale: currentPage === 1 ? 1 : 0.95 }}
-              onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
-              disabled={currentPage === 1}
-              className={`flex items-center gap-2 px-3 py-2 rounded-lg font-medium transition-all duration-300 ${currentPage === 1
-                ? 'bg-gray-200 dark:bg-gray-700 text-gray-400 cursor-not-allowed'
-                : 'bg-blue-500 text-white hover:bg-blue-600 hover:shadow-lg'
-                }`}
-            >
-              <ChevronLeft className="w-4 h-4" />
-              Previous
-            </motion.button>
-
-            {/* Enhanced Page Numbers */}
-            <div className="flex items-center gap-1">
-              {Array.from({ length: totalPages }, (_, index) => index + 1).map((page, index) => (
-                <motion.button
-                  key={page}
-                  initial={{ opacity: 0, scale: 0.8, y: 10 }}
-                  animate={isInView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.8, y: 10 }}
-                  transition={{
-                    duration: 0.5,
-                    delay: 3.2 + index * 0.1,
-                    ease: "easeOut",
-                    type: "spring",
-                    stiffness: 120
-                  }}
-                  whileHover={{ scale: 1.15, y: -3 }}
-                  whileTap={{ scale: 0.9 }}
-                  onClick={() => setCurrentPage(page)}
-                  className={`w-9 h-9 rounded-lg font-medium transition-all duration-300 ${currentPage === page
-                    ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg'
-                    : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 hover:shadow-md'
-                    }`}
-                >
-                  {page}
-                </motion.button>
-              ))}
-            </div>
-
-            {/* Enhanced Next Page Button */}
-            <motion.button
-              whileHover={{ scale: currentPage === totalPages ? 1 : 1.05, y: -2 }}
-              whileTap={{ scale: currentPage === totalPages ? 1 : 0.95 }}
-              onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
-              disabled={currentPage === totalPages}
-              className={`flex items-center gap-2 px-3 py-2 rounded-lg font-medium transition-all duration-300 ${currentPage === totalPages
-                ? 'bg-gray-200 dark:bg-gray-700 text-gray-400 cursor-not-allowed'
-                : 'bg-blue-500 text-white hover:bg-blue-600 hover:shadow-lg'
-                }`}
-            >
-              Next
-              <ChevronRight className="w-4 h-4" />
-            </motion.button>
-          </motion.div>
-        )}
-
-        {/* Enhanced Call to Action */}
+        {/* View all projects CTA */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -501,43 +303,16 @@ export default function Projects() {
             transition={{ duration: 0.8, delay: 1.7, ease: "easeOut" }}
             className="text-lg sm:text-xl mb-8 text-gray-600 dark:text-gray-400"
           >
-            Interested in working together on your next project?
+            Showing 3 featured AI systems projects. Browse the full catalog and earlier works next.
           </motion.p>
-          <motion.button
-            initial={{ opacity: 0, y: 20, scale: 0.9 }}
-            animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 20, scale: 0.9 }}
-            transition={{ duration: 0.8, delay: 1.9, ease: "easeOut" }}
-            whileHover={{
-              scale: 1.05,
-              y: -2,
-              transition: { duration: 0.2 }
-            }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl font-semibold transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/25"
+          <Link
+            href="/projects"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl font-semibold transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/25 hover:scale-[1.02]"
           >
-            Let&apos;s Discuss Your Project
-          </motion.button>
+            View all projects
+            <ArrowRight className="w-5 h-5" />
+          </Link>
         </motion.div>
-
-        {/* Performance Indicator */}
-        {/* {Object.keys(imageLoadTimes).length > 0 && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mt-8 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-200 dark:border-blue-800"
-          >
-            <div className="text-center">
-              <h4 className="text-sm font-medium text-blue-800 dark:text-blue-200 mb-2">
-                Performance Metrics
-              </h4>
-              <div className="flex justify-center gap-4 text-xs text-blue-600 dark:text-blue-300">
-                <span>Images Loaded: {loadedImages.size}/{projects.length}</span>
-                <span>Load Time: {Math.round(Object.values(imageLoadTimes).reduce((a, b) => a + b, 0) / Object.keys(imageLoadTimes).length)}ms</span>
-              </div>
-            </div>
-          </motion.div>
-        )} */}
       </div>
 
       {/* Enhanced Project Modal */}

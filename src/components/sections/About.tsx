@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import Image from 'next/image'
-import { Code, Database, Smartphone, Cloud, Zap, Users, Award, BookOpen } from 'lucide-react'
+import { Code, Database, Brain, Cloud, Zap, Users, Award, BookOpen, Shield } from 'lucide-react'
 import { Image_parser } from '@/utils/Image_parser'
 
 export default function About() {
@@ -13,19 +13,19 @@ export default function About() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   const skills = [
-    { icon: Code, title: 'Frontend Development', description: 'React, Next.js, TypeScript, Tailwind CSS' },
-    { icon: Smartphone, title: 'Mobile Development', description: 'React Native, Flutter, iOS, Android' },
-    { icon: Database, title: 'Backend Development', description: 'Node.js, Express, Python, Django' },
-    { icon: Cloud, title: 'Cloud & DevOps', description: 'AWS, Docker, CI/CD' },
-    { icon: Zap, title: 'AI & Machine Learning', description: 'AI Agents, Chatbots, ML Models' },
-    { icon: Users, title: 'Team Leadership', description: 'Agile, Code Reviews, Mentoring' }
+    { icon: Brain, title: 'Multi-Agent Systems', description: 'LangGraph, orchestration, tool-use guardrails' },
+    { icon: Zap, title: 'Applied LLMs', description: 'OpenAI/Claude APIs, RAG, evaluation loops' },
+    { icon: Database, title: 'Production AI Backends', description: 'FastAPI, PostgreSQL, Redis, Docker' },
+    { icon: Shield, title: 'Reliability & Guardrails', description: 'Hallucination mitigation, deterministic constraints' },
+    { icon: Cloud, title: 'Cloud & Delivery', description: 'CI/CD, containerized AI services' },
+    { icon: Users, title: 'Technical Leadership', description: 'Mentoring, research labs, cross-functional delivery' }
   ]
 
   const achievements = [
-    { icon: Award, title: '5+ Years Experience', description: 'Building scalable web applications' },
-    { icon: BookOpen, title: 'AI & ML Expert', description: 'AI agents, chatbots, machine learning' },
-    { icon: Users, title: '30+ Projects', description: 'Successfully delivered to clients' },
-    { icon: Zap, title: 'Innovation Leader', description: 'Cutting-edge tech solutions' }
+    { icon: Award, title: '5+ Years Building Systems', description: 'From production apps to agentic AI pipelines' },
+    { icon: BookOpen, title: 'Applied AI Research Focus', description: 'Deterministic agents, evaluation, guardrails' },
+    { icon: Brain, title: 'Multi-Agent Products', description: 'Brand Craft, advising systems, GovGuide agent' },
+    { icon: Zap, title: 'Enterprise Automation', description: 'Latency-aware workflows and tool integrations' }
   ]
 
   return (
@@ -60,8 +60,8 @@ export default function About() {
             transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
             className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed"
           >
-            Passionate software developer with a love for creating innovative digital solutions
-            and building amazing user experiences.
+            Founder & Applied AI Engineer focused on deterministic automation,
+            multi-agent workflows, and production-ready LLM systems.
           </motion.p>
         </motion.div>
 
@@ -89,9 +89,9 @@ export default function About() {
               </motion.h3>
               <div className="space-y-4 text-left">
                 {[
-                  "I'm Akshay Patel, a full-stack software developer with over 5 years of experience in creating web and mobile applications. My journey in tech started with curiosity and has evolved into a passion for building solutions that make a difference.",
-                  "I specialize in modern technologies like React, Node.js, React Native and cloud platforms, plus cutting-edge AI and Machine Learning. I've built AI agents, intelligent chatbots, and ML models that solve real-world problems. What drives me is the challenge of turning complex problems into elegant, user-friendly solutions that people love to use.",
-                  "When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, or sharing knowledge with the developer community."
+                  "I'm Akshay Patel, a Founder and Applied AI Engineer with 5+ years building software systems - now specialized in multi-agent orchestration, enterprise automation, and LLM guardrails. My work sits at the intersection of research-minded design and production delivery.",
+                  "I design agent pipelines that are evaluable and constrained: LangGraph workflows, RAG and ranking systems, FastAPI services, and verification loops that reduce hallucinated actions. Earlier I shipped full-stack and mobile products at scale; that systems background now informs how I harden AI for real latency, reliability, and tool-integration constraints.",
+                  "Outside shipping systems, I write technical reports, mentor on generative AI, and explore AI safety evaluation - work aimed at fellowships and research collaboration as much as product impact."
                 ].map((paragraph, index) => (
                   <motion.p
                     key={index}
@@ -122,7 +122,7 @@ export default function About() {
                 transition={{ duration: 0.8, delay: 1.1, ease: "easeOut" }}
                 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white mb-8 text-left"
               >
-                What I Do Best
+                Core Focus Areas
               </motion.h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {skills.map((skill, index) => {
@@ -362,7 +362,7 @@ export default function About() {
             transition={{ duration: 0.8, delay: 1.9, ease: "easeOut" }}
             className="text-lg sm:text-xl mb-8 text-gray-600 dark:text-gray-400"
           >
-            Ready to see what I can build for you?
+            Interested in deterministic agents, evaluation, or research collaboration?
           </motion.p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <motion.button
