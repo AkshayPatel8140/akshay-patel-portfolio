@@ -215,7 +215,7 @@ export default function Contact() {
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
                 transition={{ duration: 0.8, delay: 1.4, ease: "easeOut" }}
               >
-                Based in the United States—open to research collaboration, AI systems roles,
+                Based in the United States - open to research collaboration, AI systems roles,
                 fellowship inquiries, and applied multi-agent / automation projects.
               </motion.p>
             </motion.div>
@@ -507,7 +507,7 @@ export default function Contact() {
             </h3>
             <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
               Whether it&apos;s agentic workflows, evaluation systems, research collaboration,
-              or production AI automation—let&apos;s talk.
+              or production AI automation - let&apos;s talk.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <button 

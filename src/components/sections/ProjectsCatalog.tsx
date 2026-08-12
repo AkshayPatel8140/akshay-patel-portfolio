@@ -11,6 +11,7 @@ import {
   Code,
   Brain,
   Smartphone,
+  Zap,
   ChevronDown,
   ChevronUp,
 } from 'lucide-react'
@@ -21,6 +22,7 @@ import { Image_parser } from '@/utils/Image_parser'
 const CATEGORY_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
   All: Code,
   'AI/ML': Brain,
+  'AI Automation & Multimodal Pipelines': Zap,
   Backend: Code,
   'Development Tools': Code,
   Mobile: Smartphone,

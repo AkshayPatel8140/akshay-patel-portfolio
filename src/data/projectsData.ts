@@ -4,23 +4,30 @@ export const HOME_FEATURED_PROJECT_LIMIT = 3
 
 export const projectsData: Project[] = [
   {
-    id: 12,
-    title: 'Brand Craft Studio',
+    id: 14,
+    title: 'StickLab',
     description:
-      'A multi-agent brand asset pipeline that enforces deterministic handoffs across five specialized agents: brand knowledge loading, prompt engineering, DALL·E 3 generation, logo compositing, and compliance verification. Built with LangGraph to constrain tool use and state transitions, producing JSON verification reports that catch palette, style, and logo-placement drift before assets ship. Focus areas include hallucination mitigation in creative prompts, structured agent outputs, and measurable brand-compliance checks for enterprise marketing workflows.',
+      'StickLab is an AI sticker design platform that turns product-ready artwork into a daily creation workflow. The pipeline combines image segmentation and vision APIs to isolate subjects, clean edges for die-cut readiness, and feed multimodal generation steps that remix or invent sticker designs. Built as an automated design-generation loop: analyze artwork, segment usable regions, apply vision-guided edits, and export print-friendly sticker assets for browse, download, and remix.',
     shortDescription:
-      'LangGraph multi-agent pipeline with brand compliance guardrails and verification reports.',
-    image: '/images/projects/brandCraftStudio.png',
-    category: 'AI/ML',
-    technologies: ['Python', 'LangGraph', 'OpenAI API', 'DALL-E 3', 'Pillow', 'NumPy', 'JavaScript'],
-    features: [
-      'Five-agent deterministic workflow (knowledge → prompt → generate → composite → verify)',
-      'Brand compliance guardrails (palette, style, logo placement)',
-      'Structured JSON verification reports for auditability',
-      'Background job progress tracking for generation latency',
+      'AI sticker studio with vision segmentation, multimodal generation, and automated design workflows.',
+    image: '/images/projects/Sticklab-Art.png',
+    category: 'AI Automation & Multimodal Pipelines',
+    technologies: [
+      'Vision APIs',
+      'Image Segmentation',
+      'Multimodal AI',
+      'Automated Design Pipelines',
+      'Python',
+      'Computer Vision',
     ],
-    liveUrl: 'https://akshaypatel8140.github.io/akshay-patel-portfolio/',
-    githubUrl: 'https://github.com/AkshayPatel8140/brand-craft-studio',
+    features: [
+      'Image segmentation for die-cut ready subject isolation',
+      'Vision API - driven artwork analysis and edge cleanup',
+      'Automated multimodal sticker generation and remix flows',
+      'Daily drop archive with browse, download, and create paths',
+    ],
+    liveUrl: 'https://sticklab-art.garudx.ai',
+    githubUrl: '',
     androidUrl: '',
     iosUrl: '',
     ipadUrl: '',
@@ -34,7 +41,7 @@ export const projectsData: Project[] = [
     id: 1,
     title: 'AI Academic Advisor',
     description:
-      'Hybrid recommendation and advising system that combines content-based, collaborative, and knowledge-based filtering with transformer NLP and LSTM engagement prediction. Flask services own session state, ranking logic, and sentiment analysis; PostgreSQL/MongoDB stores are indexed for lower query latency under concurrent student sessions. A React chatbot surfaces adaptive course and career plans while keeping recommendation explanations inspectable—reducing opaque “black box” suggestions and improving response-time and ranking quality in evaluation passes.',
+      'Hybrid recommendation and advising system that combines content-based, collaborative, and knowledge-based filtering with transformer NLP and LSTM engagement prediction. Flask services own session state, ranking logic, and sentiment analysis; PostgreSQL/MongoDB stores are indexed for lower query latency under concurrent student sessions. A React chatbot surfaces adaptive course and career plans while keeping recommendation explanations inspectable - reducing opaque “black box” suggestions and improving response-time and ranking quality in evaluation passes.',
     shortDescription:
       'Hybrid recs + NLP/LSTM engagement models with latency-tuned Flask APIs and explainable advising.',
     image: '/images/projects/AAA2.jpg',
@@ -71,7 +78,7 @@ export const projectsData: Project[] = [
     id: 13,
     title: 'GovGuide Florida: AI Agent',
     description:
-      'Public-facing agentic workflow (Relevance AI) that turns fragmented government web content into a single actionable answer. The agent runs a constrained tool chain—query formulation, domain-restricted search, multi-page scrape, then synthesis—so answers stay grounded in official Florida government sources rather than open-web hallucination. Emphasizes tool-integration guardrails (domain allowlist), multi-step orchestration, and clear step-by-step outputs citizens can follow without reading dozens of pages.',
+      'Public-facing agentic workflow (Relevance AI) that turns fragmented government web content into a single actionable answer. The agent runs a constrained tool chain - query formulation, domain-restricted search, multi-page scrape, then synthesis - so answers stay grounded in official Florida government sources rather than open-web hallucination. Emphasizes tool-integration guardrails (domain allowlist), multi-step orchestration, and clear step-by-step outputs citizens can follow without reading dozens of pages.',
     shortDescription:
       'Domain-grounded multi-step agent: search → scrape → synthesize for Florida government Q&A.',
     image: '/images/projects/Video_3.jpeg',
@@ -104,10 +111,37 @@ export const projectsData: Project[] = [
     archived: false,
   },
   {
+    id: 12,
+    title: 'Brand Craft Studio',
+    description:
+      'A multi-agent brand asset pipeline that enforces deterministic handoffs across five specialized agents: brand knowledge loading, prompt engineering, DALL·E 3 generation, logo compositing, and compliance verification. Built with LangGraph to constrain tool use and state transitions, producing JSON verification reports that catch palette, style, and logo-placement drift before assets ship. Focus areas include hallucination mitigation in creative prompts, structured agent outputs, and measurable brand-compliance checks for enterprise marketing workflows.',
+    shortDescription:
+      'LangGraph multi-agent pipeline with brand compliance guardrails and verification reports.',
+    image: '/images/projects/brandCraftStudio.png',
+    category: 'AI/ML',
+    technologies: ['Python', 'LangGraph', 'OpenAI API', 'DALL-E 3', 'Pillow', 'NumPy', 'JavaScript'],
+    features: [
+      'Five-agent deterministic workflow (knowledge → prompt → generate → composite → verify)',
+      'Brand compliance guardrails (palette, style, logo placement)',
+      'Structured JSON verification reports for auditability',
+      'Background job progress tracking for generation latency',
+    ],
+    liveUrl: 'https://youtu.be/kuIM3wNUL1c?si=cSBJmgCAKu44id45',
+    githubUrl: 'https://github.com/AkshayPatel8140/brand-craft-studio',
+    androidUrl: '',
+    iosUrl: '',
+    ipadUrl: '',
+    windowsUrl: '',
+    macUrl: '',
+    status: 'Completed',
+    featured: false,
+    archived: false,
+  },
+  {
     id: 10,
     title: 'AI Support Agent',
     description:
-      'Customer-support agent stack oriented around FastAPI services, OpenAI tool calls, and PostgreSQL-backed ticket context. Designed for sentiment-aware routing and grounded replies over account/session data, with room to layer evaluation metrics (deflection rate, latency, escalation) as the product hardens. Currently portfolio-documented without a public demo link—kept in the full catalog, not the home featured set.',
+      'Customer-support agent stack oriented around FastAPI services, OpenAI tool calls, and PostgreSQL-backed ticket context. Designed for sentiment-aware routing and grounded replies over account/session data, with room to layer evaluation metrics (deflection rate, latency, escalation) as the product hardens. Currently portfolio-documented without a public demo link - kept in the full catalog, not the home featured set.',
     shortDescription:
       'FastAPI + OpenAI support agent with sentiment routing and ticket context (catalog).',
     image: '/images/projects/chatify.png',
@@ -209,7 +243,7 @@ export const projectsData: Project[] = [
     id: 3,
     title: 'SCALE-EVV',
     description:
-      'Caregiver EVV mobile app for paperless timesheets, digital signatures, care-plan access, and agency messaging—backed by cloud agency software for remote operations.',
+      'Caregiver EVV mobile app for paperless timesheets, digital signatures, care-plan access, and agency messaging - backed by cloud agency software for remote operations.',
     shortDescription: 'Caregiver EVV app: paperless timesheets, signatures, care plans.',
     image: '/images/projects/scaleEvv.jpg',
     category: 'Mobile',
@@ -301,7 +335,7 @@ export const projectsData: Project[] = [
     id: 6,
     title: 'CHALLENGER',
     description:
-      'Sports matchmaking app for finding opponents, booking venues, and coordinating via in-app chat—with match countdown timers and EN/AR localization.',
+      'Sports matchmaking app for finding opponents, booking venues, and coordinating via in-app chat - with match countdown timers and EN/AR localization.',
     shortDescription: 'Sports challenge app: opponents, venues, chat, countdown.',
     image: '/images/projects/ReactNative.jpg',
     category: 'Mobile',
@@ -364,7 +398,7 @@ export const projectsData: Project[] = [
     id: 11,
     title: 'Modern Portfolio Website',
     description:
-      'This Next.js portfolio site—responsive layout, Framer Motion, dark mode, and performance-minded frontend for professional presentation.',
+      'This Next.js portfolio site - responsive layout, Framer Motion, dark mode, and performance-minded frontend for professional presentation.',
     shortDescription: 'Next.js portfolio with motion, dark mode, and SEO basics.',
     image: '/images/projects/myPortfolio.png',
     category: 'Frontend',

@@ -78,6 +78,9 @@ export default function Publications() {
             View all research
             <ArrowRight size={18} />
           </Link>
+          <p className="mt-4 text-sm text-gray-500 dark:text-gray-400">
+            Draft / In Progress = active research tracks (not published papers yet)
+          </p>
         </motion.div>
       </div>
     </section>

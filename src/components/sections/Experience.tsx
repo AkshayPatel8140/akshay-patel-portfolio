@@ -455,7 +455,7 @@ export default function Experience() {
             transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
             className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed"
           >
-            Professional path across applied AI systems, generative AI teaching, and production engineering—
+            Professional path across applied AI systems, generative AI teaching, and production engineering - 
             from multi-agent deployments to research-minded evaluation practice.
           </motion.p>
         </motion.div>

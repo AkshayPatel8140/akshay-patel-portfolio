@@ -55,7 +55,9 @@ export default function PublicationCard({
       {publication.featured && (
         <div className="absolute -top-3 left-6 inline-flex items-center gap-1.5 rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white shadow-md">
           <BadgeCheck size={14} />
-          Featured
+          {publication.status === 'Published' || publication.status === 'Preprint'
+            ? 'Featured'
+            : 'Ongoing research'}
         </div>
       )}
 
@@ -90,13 +92,48 @@ export default function PublicationCard({
         </div>
       </div>
 
-      <p
-        className={`text-gray-600 dark:text-gray-300 leading-relaxed mb-5 ${
-          compact ? 'line-clamp-4 text-sm sm:text-base flex-1' : ''
-        }`}
-      >
-        {publication.abstract}
-      </p>
+      {publication.focus || publication.approach || publication.nextStep ? (
+        <dl className="space-y-4 mb-5 text-sm sm:text-base flex-1">
+          {publication.focus && (
+            <div>
+              <dt className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-1">
+                Problem
+              </dt>
+              <dd className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                {publication.focus}
+              </dd>
+            </div>
+          )}
+          {publication.approach && (
+            <div>
+              <dt className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-1">
+                Approach
+              </dt>
+              <dd className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                {publication.approach}
+              </dd>
+            </div>
+          )}
+          {publication.nextStep && (
+            <div>
+              <dt className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-1">
+                Next
+              </dt>
+              <dd className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                {publication.nextStep}
+              </dd>
+            </div>
+          )}
+        </dl>
+      ) : (
+        <p
+          className={`text-gray-600 dark:text-gray-300 leading-relaxed mb-5 ${
+            compact ? 'line-clamp-4 text-sm sm:text-base flex-1' : ''
+          }`}
+        >
+          {publication.abstract}
+        </p>
+      )}
 
       <div className="flex flex-wrap gap-2 mb-6">
         {(compact ? publication.tags.slice(0, 3) : publication.tags).map((tag) => (

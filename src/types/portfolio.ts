@@ -144,7 +144,12 @@ export interface PublicationLink {
 export interface Publication {
   id: string
   title: string
+  /** Short one-line summary */
   abstract: string
+  /** Structured body for cards (preferred over a long abstract blob) */
+  focus?: string
+  approach?: string
+  nextStep?: string
   authors: string[]
   venue: string
   year: string
