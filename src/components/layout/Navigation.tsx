@@ -13,7 +13,9 @@ export default function Navigation() {
   const pathname = usePathname()
   const isBlogPage = pathname === '/blog'
   const isYouTubePage = pathname === '/youtube'
-  const isExternalPage = isBlogPage || isYouTubePage
+  const isResearchPage = pathname === '/research'
+  const isProjectsPage = pathname === '/projects'
+  const isExternalPage = isBlogPage || isYouTubePage || isResearchPage || isProjectsPage
 
   useEffect(() => {
     // Check for saved theme preference or default to light mode

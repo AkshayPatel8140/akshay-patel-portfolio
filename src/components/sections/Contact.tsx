@@ -183,9 +183,8 @@ export default function Contact() {
             transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
             className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed"
           >
-            Ready to bring your ideas to life? Based in the United States, I&apos;m available for remote collaboration 
-            and local projects. Whether you have a project in mind, want to collaborate, 
-            or just want to say hello, I&apos;d love to hear from you!
+            Based in the United States. Open to research collaboration, AI systems roles,
+            fellowship conversations, and applied multi-agent projects.
           </motion.p>
         </motion.div>
 
@@ -216,8 +215,8 @@ export default function Contact() {
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
                 transition={{ duration: 0.8, delay: 1.4, ease: "easeOut" }}
               >
-                Based in the United States, I&apos;m always open to discussing new opportunities, interesting projects, 
-                or just having a chat about technology and innovation. Available for both remote and local collaborations.
+                Based in the United States - open to research collaboration, AI systems roles,
+                fellowship inquiries, and applied multi-agent / automation projects.
               </motion.p>
             </motion.div>
 
@@ -504,19 +503,18 @@ export default function Contact() {
         >
           <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl p-8 text-white">
             <h3 className="text-2xl font-bold mb-4">
-              Ready to Start Your Next Project?
+              Interested in working together?
             </h3>
             <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-              Let&apos;s collaborate to bring your vision to life. Based in the United States, I&apos;m available for 
-              both remote and local projects. Whether it&apos;s a web application, 
-              mobile app, or AI-powered solution, I&apos;m here to help you succeed.
+              Whether it&apos;s agentic workflows, evaluation systems, research collaboration,
+              or production AI automation - let&apos;s talk.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <button 
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                 className="px-6 py-3 bg-white text-blue-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300"
               >
-                Start a Project
+                Get in Touch
               </button>
               <a
                 href="mailto:akshaygpatel1997@gmail.com"

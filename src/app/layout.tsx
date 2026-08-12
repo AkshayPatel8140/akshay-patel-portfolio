@@ -14,29 +14,23 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   // Basic SEO
-  title: "Akshay Patel - Full-Stack Developer & AI/ML Expert | Portfolio",
-  description: "Professional software developer with 5+ years of experience specializing in AI/ML, React, Next.js, and full-stack development. Based in the United States, delivering innovative solutions for clients worldwide.",
+  title: "Akshay Patel - Founder & Applied AI Engineer | Portfolio",
+  description: "Founder and Applied AI Engineer building deterministic AI automation, multi-agent orchestration, and LLM guardrails for production workflows.",
   keywords: [
     "Akshay Patel",
-    "Full-Stack Developer",
-    "AI/ML Expert",
-    "React Developer",
-    "Next.js Developer",
-    "TypeScript Developer",
-    "Machine Learning Engineer",
-    "Software Developer",
-    "Web Developer",
-    "Mobile Developer",
-    "React Native Developer",
-    "Python Developer",
-    "Node.js Developer",
+    "Applied AI Engineer",
+    "Multi-Agent Systems",
+    "LLM Guardrails",
+    "Deterministic AI Automation",
+    "LangGraph",
+    "Agentic Workflows",
+    "AI Systems Research",
+    "RAG Pipelines",
+    "FastAPI",
     "Portfolio",
     "United States",
-    "Remote Developer",
-    "AI Agents",
-    "Chatbots",
-    "Computer Vision",
-    "Natural Language Processing"
+    "AI Safety",
+    "Evaluation Benchmarks"
   ].join(", "),
   authors: [{ name: "Akshay Patel" }],
   creator: "Akshay Patel",
@@ -48,14 +42,14 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://akshaypatel.dev",
     siteName: "Akshay Patel Portfolio",
-    title: "Akshay Patel - Full-Stack Developer & AI/ML Expert",
-    description: "Professional software developer with 5+ years of experience specializing in AI/ML, React, Next.js, and full-stack development. Based in the United States.",
+    title: "Akshay Patel - Founder & Applied AI Engineer",
+    description: "Founder and Applied AI Engineer building deterministic AI automation, multi-agent orchestration, and LLM guardrails for production workflows.",
     images: [
       {
         url: "/images/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Akshay Patel - Full-Stack Developer & AI/ML Expert Portfolio",
+        alt: "Akshay Patel - Founder & Applied AI Engineer Portfolio",
       },
     ],
   },
@@ -65,8 +59,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@AGPatel97",
     creator: "@AGPatel97",
-    title: "Akshay Patel - Full-Stack Developer & AI/ML Expert",
-    description: "Professional software developer with 5+ years of experience specializing in AI/ML, React, Next.js, and full-stack development.",
+    title: "Akshay Patel - Founder & Applied AI Engineer",
+    description: "Deterministic AI automation, multi-agent systems, and LLM guardrails for production workflows.",
     images: ["/images/twitter-card.jpg"],
   },
   
@@ -97,7 +91,7 @@ export const metadata: Metadata = {
   
   // Category and classification
   category: "Technology",
-  classification: "Software Development Portfolio",
+  classification: "Applied AI Systems Portfolio",
   
   // Contact information
   other: {
@@ -134,8 +128,8 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Akshay Patel",
-    "jobTitle": "Full-Stack Developer & AI/ML Expert",
-    "description": "Professional software developer with 5+ years of experience specializing in AI/ML, React, Next.js, and full-stack development.",
+    "jobTitle": "Founder & Applied AI Engineer",
+    "description": "Founder and Applied AI Engineer building deterministic AI automation, multi-agent orchestration, and LLM guardrails for production workflows.",
     "url": "https://akshaypatel.dev",
     "image": "/images/profile-akshay-patel.jpg",
     "email": "akshaygpatel1997@gmail.com",
@@ -149,25 +143,23 @@ export default function RootLayout({
       "https://www.linkedin.com/in/akshay-patel-04a714116",
       "https://github.com/AkshayPatel8140",
       "https://x.com/AGPatel97",
-      "https://www.instagram.com/a_g_patel/"
+      "https://scholar.google.com/citations?user=JqZzXukAAAAJ&hl=en"
     ],
     "knowsAbout": [
-      "React",
-      "Next.js",
-      "TypeScript",
-      "Node.js",
-      "Python",
-      "Machine Learning",
-      "Artificial Intelligence",
-      "Computer Vision",
-      "Natural Language Processing",
-      "Full-Stack Development",
-      "Mobile Development",
-      "Cloud Computing"
+      "Multi-Agent Systems",
+      "LangGraph",
+      "LLM Guardrails",
+      "Deterministic AI Automation",
+      "RAG Pipelines",
+      "Evaluation Benchmarks",
+      "FastAPI",
+      "PyTorch",
+      "Applied Machine Learning",
+      "AI Systems Research"
     ],
     "hasOccupation": {
       "@type": "Occupation",
-      "name": "Software Developer",
+      "name": "Applied AI Engineer",
       "occupationLocation": {
         "@type": "Place",
         "name": "United States"
@@ -175,8 +167,8 @@ export default function RootLayout({
     },
     "worksFor": {
       "@type": "Organization",
-      "name": "Freelance/Remote",
-      "description": "Providing software development services remotely"
+      "name": "Independent / Research & Applied AI",
+      "description": "Building deterministic AI automation systems and agentic workflows"
     }
   };
 

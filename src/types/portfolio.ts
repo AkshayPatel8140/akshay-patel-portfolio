@@ -20,11 +20,21 @@ export interface NavigationConfig {
 export interface PersonalInfo {
   name: string
   title: string
+  headline: string
   location: string
   email: string
   phone: string
   about: string
   summary: string
+}
+
+// Hero quick-link CTAs (GitHub, Scholar, OSF, Contact)
+export interface HeroQuickLink {
+  name: string
+  href: string | null
+  type: 'external' | 'hash'
+  /** When false, render as disabled / "Coming soon" until the profile exists */
+  available: boolean
 }
 
 // Social Media Types
@@ -38,18 +48,37 @@ export interface SocialLink {
 // Skills Types
 export interface Skill {
   name: string
-  level: number
-  color: string
+  /** 0–100 proficiency shown in the Skills section bars */
+  proficiency: number
 }
 
 export interface SkillCategory {
   name: string
+  /** Short tier label, e.g. "Tier 1" */
+  tier: string
+  description: string
   icon: string
   skills: Skill[]
 }
 
 export interface SkillsData {
+  sectionTitle: string
+  sectionSubtitle: string
   categories: SkillCategory[]
+  softSkills: SoftSkill[]
+  currentLearning: LearningItem[]
+}
+
+export interface SoftSkill {
+  title: string
+  description: string
+  icon: string
+}
+
+export interface LearningItem {
+  name: string
+  status: string
+  icon: string
 }
 
 // Project Types
@@ -70,6 +99,10 @@ export interface Project {
   windowsUrl?: string
   macUrl?: string
   status: 'Completed' | 'In Progress' | 'Planned'
+  /** Shown on home (max 3). */
+  featured?: boolean
+  /** Earlier / client work — collapsible archive on /projects. */
+  archived?: boolean
 }
 
 // Blog Types
@@ -99,6 +132,40 @@ export interface YouTubeVideo {
   category: string
   tags: string[]
   featured?: boolean
+}
+
+// Publication / Research Types
+export interface PublicationLink {
+  label: string
+  href: string | null
+  available: boolean
+}
+
+export interface Publication {
+  id: string
+  title: string
+  /** Short one-line summary */
+  abstract: string
+  /** Structured body for cards (preferred over a long abstract blob) */
+  focus?: string
+  approach?: string
+  nextStep?: string
+  authors: string[]
+  venue: string
+  year: string
+  status: 'Published' | 'Preprint' | 'Draft' | 'In Progress'
+  featured?: boolean
+  pdfUrl: string | null
+  doi: string | null
+  scholarUrl: string | null
+  osfUrl: string | null
+  tags: string[]
+}
+
+export interface PublicationsData {
+  sectionTitle: string
+  sectionSubtitle: string
+  items: Publication[]
 }
 
 // Categories Types

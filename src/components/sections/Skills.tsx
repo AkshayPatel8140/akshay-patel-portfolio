@@ -5,81 +5,49 @@ import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { 
-  Code, Database, Smartphone, Cloud, Zap, Users, 
-  Brain, Globe, Shield, Cpu, Palette, Rocket,
-  TrendingUp, BookOpen, Lightbulb, Target
+  Database, Smartphone, Cloud, Users, 
+  Brain, Shield, Cpu, Rocket,
+  TrendingUp, BookOpen, Lightbulb, Target, Server
 } from 'lucide-react'
+import { skillsData } from '@/data/portfolio'
+
+const skillIconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  Brain,
+  Cpu,
+  Server,
+  Database,
+  Cloud,
+  Smartphone,
+  Users,
+  Lightbulb,
+  BookOpen,
+  Target,
+  TrendingUp,
+  Shield,
+  Rocket,
+}
 
 export default function Skills() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
-  const technicalSkills = [
-    {
-      category: 'Frontend Development',
-      icon: Code,
-      skills: [
-        { name: 'React', proficiency: 95 },
-        { name: 'TypeScript', proficiency: 88 },
-        { name: 'Next.js', proficiency: 90 },
-        { name: 'Tailwind CSS', proficiency: 92 },
-        { name: 'HTML/CSS', proficiency: 95 },
-        { name: 'JavaScript', proficiency: 93 }
-      ]
-    },
-    {
-      category: 'Backend Development',
-      icon: Database,
-      skills: [
-        { name: 'Node.js', proficiency: 90 },
-        { name: 'Express.js', proficiency: 88 },
-        { name: 'Python', proficiency: 85 },
-        { name: 'Django', proficiency: 80 },
-        { name: 'REST APIs', proficiency: 92 },
-        { name: 'GraphQL', proficiency: 75 }
-      ]
-    },
-    {
-      category: 'AI & Machine Learning',
-      icon: Brain,
-      skills: [
-        { name: 'AI Agents', proficiency: 85 },
-        { name: 'Chatbots', proficiency: 88 },
-        { name: 'Machine Learning', proficiency: 80 },
-        { name: 'Python ML', proficiency: 82 },
-        { name: 'NLP', proficiency: 75 },
-        { name: 'Data Analysis', proficiency: 78 }
-      ]
-    },
-    {
-      category: 'Mobile & Cloud',
-      icon: Cloud,
-      skills: [
-        { name: 'React Native', proficiency: 80 },
-        { name: 'Flutter', proficiency: 75 },
-        { name: 'AWS', proficiency: 85 },
-        { name: 'Docker', proficiency: 82 },
-        { name: 'CI/CD', proficiency: 80 },
-        { name: 'Serverless', proficiency: 78 }
-      ]
-    }
-  ]
+  const technicalSkills = skillsData.categories.map((category) => ({
+    category: category.name,
+    tier: category.tier,
+    description: category.description,
+    icon: skillIconMap[category.icon] ?? Brain,
+    skills: category.skills,
+  }))
 
-  const softSkills = [
-    { icon: Users, title: 'Team Collaboration', description: 'Working effectively in cross-functional teams' },
-    { icon: Lightbulb, title: 'Problem Solving', description: 'Analytical thinking and creative solutions' },
-    { icon: BookOpen, title: 'Continuous Learning', description: 'Always exploring new technologies' },
-    { icon: Target, title: 'Project Management', description: 'Leading projects from concept to delivery' },
-    { icon: TrendingUp, title: 'Adaptability', description: 'Quickly learning and adapting to new challenges' },
-    { icon: Shield, title: 'Quality Focus', description: 'Writing clean, maintainable code' }
-  ]
+  const softSkills = skillsData.softSkills.map((skill) => ({
+    ...skill,
+    icon: skillIconMap[skill.icon] ?? Users,
+  }))
 
-  const currentLearning = [
-    { icon: Rocket, name: 'Advanced AI/ML', status: 'In Progress' },
-    { icon: Globe, name: 'Blockchain', status: 'Exploring' },
-    { icon: Cpu, name: 'System Design', status: 'Learning' },
-    { icon: Palette, name: 'UI/UX Design', status: 'Improving' }
-  ]
+  const currentLearning = skillsData.currentLearning.map((item) => ({
+    ...item,
+    icon: skillIconMap[item.icon] ?? Rocket,
+  }))
 
   return (
     <section id="skills" className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-blue-900 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
@@ -113,12 +81,11 @@ export default function Skills() {
             transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
             className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
           >
-            A comprehensive overview of my technical skills, soft skills, and continuous learning journey 
-            in software development and artificial intelligence.
+            {skillsData.sectionSubtitle}
           </motion.p>
         </motion.div>
 
-        {/* Enhanced Technical Skills */}
+        {/* Research-aligned technical tiers */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
@@ -131,9 +98,9 @@ export default function Skills() {
             transition={{ duration: 0.8, delay: 1.0, ease: "easeOut" }}
             className="text-3xl font-bold text-white text-center mb-12"
           >
-            Technical Skills
+            Core Skills & Tech Stack
           </motion.h3>
-          <div className="grid lg:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
             {technicalSkills.map((category, categoryIndex) => {
               const Icon = category.icon
               return (
@@ -156,20 +123,26 @@ export default function Skills() {
                   className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/15 hover:border-white/30 transition-all duration-300 cursor-pointer"
                 >
                   <motion.div 
-                    className="flex items-center mb-6"
+                    className="flex items-center mb-2"
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                     transition={{ duration: 0.6, delay: 1.4 + categoryIndex * 0.2, ease: "easeOut" }}
                   >
                     <motion.div 
-                      className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center mr-4"
+                      className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center mr-4 shrink-0"
                       whileHover={{ rotate: 5, scale: 1.1 }}
                       transition={{ duration: 0.2 }}
                     >
                       <Icon className="w-6 h-6 text-white" />
                     </motion.div>
-                    <h4 className="text-xl font-semibold text-white">{category.category}</h4>
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-wider text-blue-300 mb-1">
+                        {category.tier}
+                      </p>
+                      <h4 className="text-lg font-semibold text-white leading-snug">{category.category}</h4>
+                    </div>
                   </motion.div>
+                  <p className="text-sm text-gray-400 mb-6 ml-16">{category.description}</p>
                   
                   <div className="space-y-4">
                     {category.skills.map((skill, skillIndex) => (
@@ -240,7 +213,7 @@ export default function Skills() {
             transition={{ duration: 0.8, delay: 3.0, ease: "easeOut" }}
             className="text-3xl font-bold text-white text-center mb-12"
           >
-            Soft Skills & Professional Qualities
+            Soft Skills & Research Practice
           </motion.h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {softSkills.map((skill, index) => {
@@ -307,7 +280,7 @@ export default function Skills() {
             transition={{ duration: 0.8, delay: 4.2, ease: "easeOut" }}
             className="text-3xl font-bold text-white mb-8"
           >
-            Currently Learning & Exploring
+            Research Focus & Learning
           </motion.h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
             {currentLearning.map((item, index) => {
@@ -374,7 +347,7 @@ export default function Skills() {
             transition={{ duration: 0.8, delay: 5.2, ease: "easeOut" }}
             className="text-lg sm:text-xl mb-8 text-gray-300"
           >
-            Ready to see these skills in action?
+            Ready to apply these systems in research or production?
           </motion.p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <motion.button 

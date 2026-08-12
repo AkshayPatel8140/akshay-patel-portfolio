@@ -1,17 +1,26 @@
 // Portfolio Data - Centralized management for all static content
 
+import type {
+  HeroQuickLink,
+  NavigationConfig,
+  PersonalInfo,
+  SkillsData,
+  SocialLink,
+} from '@/types/portfolio'
+
 // Navigation Configuration
-export const navigationConfig = {
+export const navigationConfig: NavigationConfig = {
   logo: {
     initials: 'AP',
     fullName: 'Akshay Patel',
-    title: 'Full-Stack Developer & AI/ML Expert'
+    title: 'Founder & Applied AI Engineer'
   },
   links: [
     { name: 'Home', href: '#home', type: 'hash' },
+    { name: 'Research', href: '/research', type: 'page' },
     { name: 'About', href: '#about', type: 'hash' },
     { name: 'Skills', href: '#skills', type: 'hash' },
-    { name: 'Projects', href: '#projects', type: 'hash' },
+    { name: 'Projects', href: '/projects', type: 'page' },
     { name: 'Blog', href: '/blog', type: 'page' },
     { name: 'YouTube', href: '/youtube', type: 'page' },
     { name: 'Experience', href: '#experience', type: 'hash' },
@@ -20,18 +29,44 @@ export const navigationConfig = {
 }
 
 // Personal Information
-export const personalInfo = {
+export const personalInfo: PersonalInfo = {
   name: 'Akshay Patel',
-  title: 'Full-Stack Developer & AI/ML Expert',
+  title: 'Founder & Applied AI Engineer',
+  headline:
+    'Founder & Applied AI Engineer building deterministic AI automation systems and agentic workflows.',
   location: 'United States',
   email: 'akshaygpatel1997@gmail.com',
   phone: '+1 (669) 231-9631',
-  about: 'Full-stack software developer based in the United States, passionate about creating innovative solutions and building amazing user experiences.',
-  summary: 'Professional software developer with 5+ years of experience specializing in AI/ML, React, Next.js, and full-stack development. Based in the United States, delivering innovative solutions for clients worldwide.'
+  about:
+    'Applied AI engineer specializing in multi-agent orchestration, enterprise automation, and LLM guardrails - building systems that make autonomous workflows reliable, evaluable, and production-ready.',
+  summary:
+    'Founder and Applied AI Engineer focused on deterministic AI automation, multi-agent systems, and applied ML systems research. Experience spanning agentic workflows, hallucination mitigation, evaluation pipelines, and production infrastructure for enterprise automation.'
 }
 
-// Social Media Links
-export const socialLinks = [
+// Hero quick links (research CTAs; GitHub lives in the round social icon row)
+export const heroQuickLinks: HeroQuickLink[] = [
+  {
+    name: 'Google Scholar',
+    href: 'https://scholar.google.com/citations?user=JqZzXukAAAAJ&hl=en',
+    type: 'external',
+    available: true
+  },
+  {
+    name: 'OSF Research',
+    href: null,
+    type: 'external',
+    available: false
+  },
+  {
+    name: 'Get in Touch',
+    href: '#contact',
+    type: 'hash',
+    available: true
+  }
+]
+
+// Social Media Links (aligned with live Hero destinations)
+export const socialLinks: SocialLink[] = [
   {
     name: 'GitHub',
     href: 'https://github.com/AkshayPatel8140',
@@ -40,15 +75,21 @@ export const socialLinks = [
   },
   {
     name: 'LinkedIn',
-    href: 'https://linkedin.com/in/akshaypatel8140',
+    href: 'https://www.linkedin.com/in/akshay-patel-04a714116',
     icon: 'Linkedin',
     color: 'hover:bg-blue-600'
   },
   {
     name: 'Twitter',
-    href: 'https://twitter.com/akshaypatel8140',
+    href: 'https://x.com/AGPatel97',
     icon: 'Twitter',
     color: 'hover:bg-blue-400'
+  },
+  {
+    name: 'Google Scholar',
+    href: 'https://scholar.google.com/citations?user=JqZzXukAAAAJ&hl=en',
+    icon: 'GraduationCap',
+    color: 'hover:bg-blue-700'
   },
   {
     name: 'Email',
@@ -58,54 +99,107 @@ export const socialLinks = [
   }
 ]
 
-// Skills Data
-export const skillsData = {
+// Skills Data — research-aligned tiers (consumed by Skills.tsx)
+export const skillsData: SkillsData = {
+  sectionTitle: 'Skills & Expertise',
+  sectionSubtitle:
+    'Technical stack organized for applied AI systems work: multi-agent orchestration, evaluation, and production infrastructure.',
   categories: [
     {
-      name: 'Frontend Development',
-      icon: 'Monitor',
-      skills: [
-        { name: 'React', level: 95, color: 'from-blue-500 to-cyan-500' },
-        { name: 'Next.js', level: 90, color: 'from-black to-gray-700' },
-        { name: 'TypeScript', level: 88, color: 'from-blue-600 to-blue-800' },
-        { name: 'JavaScript', level: 92, color: 'from-yellow-400 to-orange-500' },
-        { name: 'HTML/CSS', level: 90, color: 'from-orange-500 to-red-500' },
-        { name: 'Tailwind CSS', level: 85, color: 'from-cyan-400 to-blue-500' }
-      ]
-    },
-    {
-      name: 'Backend Development',
-      icon: 'Server',
-      skills: [
-        { name: 'Node.js', level: 85, color: 'from-green-500 to-green-700' },
-        { name: 'Python', level: 88, color: 'from-blue-500 to-blue-700' },
-        { name: 'Express.js', level: 82, color: 'from-gray-600 to-gray-800' },
-        { name: 'FastAPI', level: 80, color: 'from-green-600 to-green-800' },
-        { name: 'PostgreSQL', level: 78, color: 'from-blue-600 to-blue-800' },
-        { name: 'MongoDB', level: 75, color: 'from-green-500 to-green-700' }
-      ]
-    },
-    {
-      name: 'AI & Machine Learning',
+      name: 'LLMs & Multi-Agent Systems',
+      tier: 'Tier 1',
+      description: 'Agent orchestration, model APIs, and deterministic workflow control',
       icon: 'Brain',
       skills: [
-        { name: 'TensorFlow', level: 85, color: 'from-orange-500 to-red-500' },
-        { name: 'PyTorch', level: 82, color: 'from-red-500 to-red-700' },
-        { name: 'Scikit-learn', level: 88, color: 'from-orange-600 to-orange-800' },
-        { name: 'OpenAI API', level: 90, color: 'from-purple-500 to-purple-700' },
-        { name: 'Computer Vision', level: 85, color: 'from-blue-500 to-blue-700' },
-        { name: 'NLP', level: 80, color: 'from-green-500 to-green-700' }
+        { name: 'LangGraph', proficiency: 90 },
+        { name: 'AutoGen', proficiency: 85 },
+        { name: 'OpenAI / Claude APIs', proficiency: 92 },
+        { name: 'Multi-Agent Orchestration', proficiency: 90 },
+        { name: 'LLM Guardrails', proficiency: 88 },
+        { name: 'Prompt & Tool Design', proficiency: 90 }
       ]
     },
     {
-      name: 'Mobile Development',
-      icon: 'Smartphone',
+      name: 'ML & Evaluation Systems',
+      tier: 'Tier 2',
+      description: 'Retrieval, model training, and reliability measurement',
+      icon: 'Cpu',
       skills: [
-        { name: 'React Native', level: 80, color: 'from-blue-500 to-cyan-500' },
-        { name: 'Flutter', level: 75, color: 'from-blue-500 to-blue-700' },
-        { name: 'iOS Development', level: 70, color: 'from-gray-600 to-gray-800' },
-        { name: 'Android Development', level: 72, color: 'from-green-500 to-green-700' }
+        { name: 'PyTorch', proficiency: 82 },
+        { name: 'RAG Pipelines', proficiency: 88 },
+        { name: 'Vector Databases', proficiency: 85 },
+        { name: 'Evaluation Benchmarks', proficiency: 84 },
+        { name: 'Hallucination Mitigation', proficiency: 86 },
+        { name: 'Embeddings & Ranking', proficiency: 83 }
       ]
+    },
+    {
+      name: 'Production Systems',
+      tier: 'Tier 3',
+      description: 'APIs, data stores, and deployable services for AI workloads',
+      icon: 'Server',
+      skills: [
+        { name: 'FastAPI', proficiency: 88 },
+        { name: 'Redis', proficiency: 82 },
+        { name: 'Docker', proficiency: 85 },
+        { name: 'PostgreSQL', proficiency: 84 },
+        { name: 'Python / Node.js', proficiency: 90 },
+        { name: 'CI/CD & Cloud Deploy', proficiency: 80 }
+      ]
+    }
+  ],
+  softSkills: [
+    {
+      title: 'Systems Thinking',
+      description: 'Designing agent pipelines with clear failure modes, constraints, and evaluation loops',
+      icon: 'Cpu'
+    },
+    {
+      title: 'Research Rigor',
+      description: 'Turning applied experiments into reproducible benchmarks and technical write-ups',
+      icon: 'BookOpen'
+    },
+    {
+      title: 'Technical Leadership',
+      description: 'Mentoring engineers and aligning multi-agent builds with product and safety goals',
+      icon: 'Users'
+    },
+    {
+      title: 'Problem Decomposition',
+      description: 'Breaking ambiguous AI automation goals into deterministic, testable workflows',
+      icon: 'Lightbulb'
+    },
+    {
+      title: 'Cross-Functional Delivery',
+      description: 'Shipping with research, product, and ops partners under real latency and reliability constraints',
+      icon: 'Target'
+    },
+    {
+      title: 'Reliability Focus',
+      description: 'Prioritizing guardrails, observability, and hallucination mitigation in production agents',
+      icon: 'Shield'
+    }
+  ],
+  currentLearning: [
+    {
+      name: 'AI Safety Evaluation',
+      status: 'In Progress',
+      icon: 'Shield'
+    },
+    {
+      name: 'Deterministic Agent Control',
+      status: 'Researching',
+      icon: 'Brain'
+    },
+    {
+      name: 'Multi-Agent Benchmarks',
+      status: 'Exploring',
+      icon: 'TrendingUp'
+    },
+    {
+      name: 'Systems for LLM Ops',
+      status: 'Learning',
+      icon: 'Rocket'
     }
   ]
 }
@@ -124,9 +218,19 @@ export const externalLinks = {
 
 // SEO Configuration
 export const seoConfig = {
-  title: 'Akshay Patel - Full-Stack Developer & AI/ML Expert Portfolio',
-  description: 'Professional software developer with 5+ years of experience specializing in AI/ML, React, Next.js, and full-stack development. Based in the United States, delivering innovative solutions for clients worldwide.',
-  keywords: ['Akshay Patel', 'Full-Stack Developer', 'AI/ML Expert', 'React Developer', 'Next.js Developer', 'Machine Learning Engineer', 'Software Developer', 'Portfolio'],
+  title: 'Akshay Patel - Founder & Applied AI Engineer',
+  description:
+    'Founder and Applied AI Engineer building deterministic AI automation systems, multi-agent orchestration, and LLM guardrails for production workflows.',
+  keywords: [
+    'Akshay Patel',
+    'Applied AI Engineer',
+    'Multi-Agent Systems',
+    'LLM Guardrails',
+    'Deterministic AI Automation',
+    'Agentic Workflows',
+    'AI Systems Research',
+    'Portfolio'
+  ],
   author: 'Akshay Patel',
   url: 'https://akshaypatel.dev'
 }

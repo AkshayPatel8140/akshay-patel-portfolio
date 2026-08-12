@@ -11,7 +11,9 @@ export default function Footer() {
   const pathname = usePathname()
   const isBlogPage = pathname === '/blog'
   const isYouTubePage = pathname === '/youtube'
-  const isExternalPage = isBlogPage || isYouTubePage
+  const isResearchPage = pathname === '/research'
+  const isProjectsPage = pathname === '/projects'
+  const isExternalPage = isBlogPage || isYouTubePage || isResearchPage || isProjectsPage
 
   const scrollToTop = () => {
     if (isExternalPage) {
@@ -62,8 +64,8 @@ export default function Footer() {
                 </h3>
               </Link>
               <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed max-w-md">
-                Full-stack software developer based in the United States, passionate about creating innovative solutions 
-                and building amazing user experiences.
+                Founder & Applied AI Engineer building deterministic AI automation, multi-agent
+                workflows, and LLM guardrails for production systems.
               </p>
               
               {/* Contact Info */}
@@ -107,17 +109,26 @@ export default function Footer() {
               Quick Links
             </h4>
             <ul className="space-y-3">
-              {['About', 'Skills', 'Projects', 'Experience', 'Contact'].map((item, index) => (
+              {['About', 'Skills', 'Research', 'Projects', 'Experience', 'Contact'].map((item) => {
+                const isPage = item === 'Research' || item === 'Projects'
+                const href = isPage
+                  ? `/${item.toLowerCase()}`
+                  : isExternalPage
+                    ? `/#${item.toLowerCase()}`
+                    : `#${item.toLowerCase()}`
+                return (
                 <li key={item}>
                   <Link
-                    href={isExternalPage ? `/#${item.toLowerCase()}` : `#${item.toLowerCase()}`}
+                    href={href}
                     className="text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-200 text-sm"
-                    onClick={() => handleQuickLinkClick(item.toLowerCase())}
+                    onClick={() => {
+                      if (!isPage) handleQuickLinkClick(item.toLowerCase())
+                    }}
                   >
                     {item}
                   </Link>
                 </li>
-              ))}
+              )})}
             </ul>
           </motion.div>
 
@@ -162,7 +173,7 @@ export default function Footer() {
           className="border-t border-gray-200 dark:border-gray-700 pt-8 flex flex-col sm:flex-row items-center justify-between"
         >
           <p className="text-gray-500 dark:text-gray-400 text-sm text-center sm:text-left">
-            © {currentYear} Akshay Patel. Made with <Heart className="inline w-4 h-4 text-red-500" /> in the United States
+            © {currentYear} Akshay Patel
           </p>
           
           <motion.button
